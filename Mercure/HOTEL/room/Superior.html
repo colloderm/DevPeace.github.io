@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title> new document </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+  <script type="text/javascript" src="../../js/jquery-1.12.0.min.js"></script>
+  <script src="../../js/header.js"></script>
+  <style type="text/css">
+
+		#wrap{width:100%; height:100%;}
+
+		/* header */
+		#headerWrap{width:100%; height:60px; background-color:rgba(0, 0, 0, 0.4); position:absolute; left:0; top:0;}
+		#header {width:960px; height:100px; position:relative; margin:0 auto; overflow:hidden;}
+
+		#head div{float:left;}
+
+		/* headLogo */
+		#headLogo{width:200px; height:60px;}
+		#headLogo h1{
+								width:150px; height:60px;
+								background-image:url("../../img/logo_mercure.png"); 
+								background-repeat:no-repeat; 
+								background-size:70% 100%;
+								background-position:right;
+							}
+		#headLogo h1 a{width:100%; height:100%; display:block;  text-indent:-9999px;}
+
+		/* head gnb */
+		#head #gnb{width:760px; height:100px; margin-left:200px;}
+		#head #gnb li a{color:#bababa; font-weight:700;}
+		#head #gnb li.gnb_t{width:187.5px; height:60px; line-height:60px; text-align:center; float:left;}
+		#head #gnb li.gnb_t:hover a{color:#fff;}
+
+		#head #gnb li div.subline{width:100%; position:fixed; left:0; top:60px; background-color:rgba(0, 0, 0, 0.2);}
+		#head #gnb li ul.gnb_st{font-size:13px;  height:40px; line-height:40px;  text-align:center; width:960px; margin:0 auto; }
+		#head #gnb li ul.gnb_st li{text-align:center; display:inline-block;}
+		#head #gnb li ul.gnb_st li:hover{background-color:rgba(0,0,0,0.3);}
+		#head #gnb li ul.gnb_st li a{padding:0 20px;}
+		#head #gnb li ul.gnb_st li:hover a{color:red; }
+
+		/*content */
+		#content{width:100%;}
+		#content #ct_head img{width:100%;}
+		
+		/* navWrap */
+		#ct_navWrap{width:100%; height:100px; padding-top:20px;}
+		#ct_navWrap #nav{width:960px; margin:0 auto;}
+
+		/* subNav1 + subNav2 */
+		#nav #subNav1{width:100%; line-height:40px; text-align:left;}
+		#nav #subNav1 li{display:inline; font-size:13px;}
+		#nav #subNav1 li a{padding:0 5px; color:#000;}
+		#nav #subNav1 li span{padding:0 5px;}
+
+		#nav #subNav2{width:100%; overflow:hidden; padding:10px 0 30px;}
+		#nav #subNav2 li{width:190px; float:left; border:1px solid #ccc; border-left:none; text-align:center; font-size:14px; padding:10px 0;}
+		#nav #subNav2 li.first{border-left:1px solid #ccc;}
+		#nav #subNav2 li.snSelect{background-color:#333;}
+		#nav #subNav2 li.snSelect a{color:#fff;}
+		#nav #subNav2 li:hover{background-color:#333;}
+		#nav #subNav2 li:hover a{color:#fff;}
+
+		/* ct_content */
+		#ct_content{width:960px; margin:0 auto;}
+		#ct_content h3{width:100%; font-size:50px; padding:10px 0 5px; border-bottom:1px solid #aaa;}
+		#ct_content #summary{width:100%; font-size:12px; color:#777; padding:10px 0 20px;}
+
+		/* ct_Text */
+		#ct_Text{width:100%;}
+		#ct_Text h4{color:#894692; font-size:18px; padding:40px 0 10px;}
+		#ct_Text p {font-size:14px;}
+
+		/* ct_box + ct_box1 + ct_box2 */
+		#ct_box{width:100%; height:400px; padding-top:50px; overflow:hidden;}
+		#ct_box #ct_box1, #ct_box #ct_box2{float:left;}
+		#ct_box h4{font-size:18px; padding-bottom:20px;}
+		#ct_box h4 img{vertical-align:middle; padding-right:5px;}
+		#ct_box p{font-weight:bold; font-size:13px; padding:5px 0;}
+		#ct_box p span{font-weight:400; font-size:12px;}
+		#ct_box #ct_box1{width:410px; height:310px; border:1px solid #ddd; padding:30px;
+									background-image:url("../../img/thumb_infobox1.png"); 
+									background-repeat:no-repeat;
+									background-position:right top;}
+		#ct_box #ct_box2{width:410px; height:310px; border:1px solid #ddd; padding:30px; margin-left:16px; position:relative;
+									background-image:url("../../img/thumb_infobox2.png"); 
+									background-repeat:no-repeat;
+									background-position:right top;}
+		#ct_box #ct_box2 .box2Text{padding-top:30px;}
+		#ct_box #ct_box2 #boxBtn{width:100%; position:absolute; left:0; bottom:0; border-top:1px solid #ddd;  padding:7px 0; text-align:center;}
+		#ct_box #ct_box2 #boxBtn a{font-size:13px;}
+
+		/* footer */
+		#footer{width:100%; height:120px; background-color:rgba(0, 0, 0, 0.8); font-size:11px; position:relative; bottom:0;}
+		#footerWrap{width:960px; height:120px; margin:0 auto;}
+		#footerWrap #ftcopy, #footerWrap #ftSelect, #footerWrap #sns{float:left;}
+
+		#ftcopy{width:660px; height:120px; padding-top:10px;}
+		#footer #footerLink p a{font-size:12px; color:#999;}
+		#footer #footerLink p span{color:#fff; font-size:9px; padding:0 10px 0 15px;}
+		#footer #address address{font-style:normal; color:#777; padding:15px 0;}
+		#footer #copy p{color:#777;}
+		
+		/* ftSelect */
+		#ftSelect{width:300px; height:110px; padding-top:10px;}
+		#ftSelect div{float:left;}
+		#ftSelect #trip{width:150px; height:50px;}
+		#ftSelect #language{width:150px; height:50px; line-height:50px;}
+		#ftSelect #language #rankSelect{padding:5px 10px; margin-top:5px;}
+
+		/* sns */
+		#sns{clear:both; width:100%; height:50px;}
+		#sns li{display:inline-block; margin-right:10px;}
+		#sns li.sns_F{width:50px; background-image:url("../../img/btn_gnb_facebook.gif"); background-repeat:no-repeat;}
+		#sns li.sns_Fg{width:50px; background-image:url("../../img/btn_gnb_facebook_g.gif"); background-repeat:no-repeat;}
+		#sns li.sns_T{width:50px; background-image:url("../../img/btn_gnb_instartgram.gif"); background-repeat:no-repeat;}
+		#sns li a{width:50px; height:50px; display:block; text-indent:-9999px;}
+
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="headerWrap">
+			<div id="header">
+				<div id="head">
+					<div id="headLogo">
+						<h1><a href="E:/01_front/portfolio/MercureHotel.html" title="머큐어호텔">머큐어호텔</a></h1>
+					</div>
+					<ul id="gnb">
+						<li class="gnb_t"><a href="#" title="HOTEL">HOTEL</a>
+							<div class="subline">
+							<ul class="gnb_st">
+								<li><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/room/Standard.html" title="ROOM">ROOM</a></li>
+								<li><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/eat/Mcafe.html" title="EatnDrink">Eat &amp; Drink</a></li>
+								<li><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/facilities/Fitness_Sauna.html" title="Facilities">Facilities</a></li>
+								<li><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/event/Hotel.html" title="Event">Event</a></li>
+								<li><a href="#" title="Special offers">Special offers</a></li>
+								<li><a href="#" title="Membership">Membership</a></li>
+							</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="#" title="MAGAZINE">MAGAZINE</a></li>
+						<li class="gnb_t"><a href="#" title="SUPPORT">SUPPORT</a>
+							<div class="subline">
+							<ul class="gnb_st">
+								<li><a href="#" title="Notice">Notice</a></li>
+								<li><a href="#" title="Press">Press</a></li>
+								<li><a href="#" title="Reviews">Reviews</a></li>
+								<li><a href="#" title="FAQ">FAQ</a></li>
+								<li><a href="#" title="1:1 Inquiry">1:1 Inquiry</a></li>
+								<li><a href="#" title="Contact Us">Contact Us</a></li>
+							</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="#" title="ABOUT">ABOUT</a>
+							<div class="subline">
+							<ul class="gnb_st">
+								<li><a href="#" title="Introduction">Introduction</a></li>
+								<li><a href="#" title="Greeting">Greeting</a></li>
+								<li><a href="#" title="Advantage">Advantage</a></li>
+								<li><a href="#" title="Location">Location</a></li>
+								<li><a href="#" title="Recruit">Recruit</a></li>
+							</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<h2>컨텐츠 영역</h2>
+			<div id="ct_head">
+				<img src="../../img/Superior-1-960.jpg" alt="Room1"/>
+			</div>
+			<div id="ct_navWrap">
+				<div id="nav">
+					<ul id="subNav1">
+						<li><a href="#" title="HOME">HOME</a><span>&gt;</span></li>
+						<li><a href="#" title="HOTEL">HOTEL</a><span>&gt;</span></li>
+						<li><a href="#" title="ROOMS"><strong>ROOMS</strong></a></li>
+					</ul>
+					<ul id="subNav2">
+						<li class="first"><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/room/Standard.html" title="STANDARD">STANDARD</a></li>
+						<li class="snSelect"><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/room/Supeior.html" title="SUPERIOR">SUPERIOR</a></li>
+						<li><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/room/Privilege.html" title="PRIVILEGE">PRIVILEGE</a></li>
+						<li><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/room/Super_corner.html" title="SUPERIOR CORNER">SUPERIOR CORNER</a></li>
+						<li><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/room/Balcony.html" title="BALCONY">BALCONY</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="ct_content">
+				<h3><a href="http://www.mercureseoul.com/kr/hotel/rooms/superior-detail.html" title="SUPERIOR">SUPERIOR</a></h3>
+				<p id="summary">탁 트인 강남 전경을 한 눈에 바라볼 수 있는 슈페리어(Superior) 객실을 소개합니다.</p>
+				<div id="ct_Text">
+					<h4>Room Amenity</h4>
+					<p>
+						무료 인터넷 / 데스크 (길이 조절 가능) / 개별 냉, 난방 시스템 / 40인치 LCD TV / 전화, 보이스 메일, 알람 시스템 / 미니바 및 개인 금고 / 객실 내 생수 1병 및 커피/차 제공 / 최고급 침구 (Duvet/국내제작)
+					</p>
+					<h4>Bath Amenity</h4>
+					<p>
+						비데 시설 (일부 객실/예약 시 가능 여부 문의) / 순면 가운 / 슬리퍼 / 헤어 드라이기 / 친환경 ECO Bath Amenity (샴푸 / 린스 / 로션 / 바디클린저)
+					</p>
+					<h4>Others</h4>
+					<p>
+						피트니스 클럽 / 사우나 (유료) / 비즈니스 센터 / 셀프 세탁실
+					</p>
+				</div>
+				<div id="ct_box">
+					<div id="ct_box1">
+						<h4><img src="../../img/ico_infobox1.png" alt=""/>Basic Info</h4>
+						<p>객실 층 <span>4 ~ 14층</span></p>
+						<p>객실 전망 <span>도시 뷰</span></p>
+						<p>객실 타입 <span>더블</span></p>
+						<p>객실 사이즈 <span>23.30m²</span></p>
+					</div>
+					<div id="ct_box2">
+						<h4><img src="../../img/ico_infobox2.png" alt=""/>체크인 / 체크아웃</h4>
+						<p>체크인 시간 <span>14:00</span></p>
+						<p>체크아웃 시간 <span>12:00</span></p>
+						<h4 class="box2Text"><img src="../../img/ico_infobox2.png" alt=""/>문의</h4>
+						<p>전화 <span>+82-2-2050-6000</span></p>
+						<p>팩스 <span>+82-2-2050-6053</span></p>
+						<div id="boxBtn">
+							<a href="#" title="문의하기">1 : 1 문의하기 &gt;</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div id="footerWrap">
+				<h2>풋터 영역</h2>
+				<div id="ftcopy">
+					<div id="footerLink">
+						<p>
+							<a href="#" title="개인정보취급방침"><strong>개인정보취급방침</strong></a><span>|</span>
+							<a href="#" title="이용약관">이용약관</a>
+						</p>
+					</div>
+					<div id="address">
+						<address>
+							상호 : (주)희앤썬 / 대표자명 : 우희명 서울시 강남구 역삼동 테헤란로 25길 10 (서울시 강남구 역삼동 642번지)<br/>
+							TEL : 02-2050-6000 / 사업자등록번호 : 211-81-61213 / 통신판매업신고번호 : 2013-서울강남-00319
+						</address>
+					</div>
+					<div id="copy">
+						<p>
+							Copyright 2016 Mercure Seoul Ambassador Gangnam Sodowe All Rights Reserved
+						</p>
+					</div>
+				</div>
+				<div id="ftSelect">
+					<div id="trip">
+						<a href="#" title="예약하기"><img src="../../img/btn_gnb_trip.gif" alt="호텔예약"/></a>
+					</div>
+					<div id="language">
+						<select id="rankSelect">
+							<option value="Select Language">Select Language</option>
+							<option value="English">English</option>
+							<option value="Chinese">Chinese</option>
+							<option value="Japanese">Japanese</option>
+							<option value="Korean">Korean</option>
+						</select>
+					</div>
+					<div id="sns">
+						<ul>
+							<li class="sns_F">
+								<a href="#" title="facebook1">facebook 바로가기</a>
+							</li>
+							<li class="sns_Fg">
+								<a href="#" title="facebook2">facebook 바로가기</a>
+							</li>
+							<li class="sns_T">
+								<a href="#" title="Instargram">Instargram 바로가기</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

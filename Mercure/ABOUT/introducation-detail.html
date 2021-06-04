@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title> new document </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/mercure.css?v=1"/>
+  <script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="../js/header.js"></script>
+  <script>
+	$(function(){
+	});
+  </script>
+  <style type="text/css">
+
+		#wrap{width:100%; height:100%;}
+
+		/* header */
+		#headerWrap{width:100%; height:60px; background-color:rgba(0, 0, 0, 0.8); position:absolute; left:0; top:0;}
+		#header {width:960px; height:100px; position:relative; margin:0 auto; overflow:hidden;}
+
+		#head div{float:left;}
+
+		/* headLogo */
+		#headLogo{width:200px; height:60px;}
+		#headLogo h1{
+			width:150px; height:60px;
+			background-image:url("../img/logo_mercure.png"); 
+			background-repeat:no-repeat; 
+			background-size:70% 100%;
+			background-position:right;
+		}
+		#headLogo h1 a{width:100%; height:100%; display:block;  text-indent:-9999px;}
+
+		/* head gnb */
+		#head #gnb{width:760px; height:100px; margin-left:200px;}
+		#head #gnb li a{color:#bababa; font-weight:700;}
+		#head #gnb li.gnb_t{width:187.5px; height:60px; line-height:60px; text-align:center; float:left;}
+
+		#head #gnb li div.subline{width:100%; position:fixed; left:0; top:60px; background-color:rgba(0, 0, 0, 0.6);}
+		#head #gnb li ul.gnb_st{font-size:13px;  height:40px; line-height:40px;  text-align:center; width:960px; margin:0 auto; }
+		#head #gnb li ul.gnb_st li{text-align:center; display:inline-block;}
+		#head #gnb li ul.gnb_st li a{padding:0 20px;}
+
+		/*content */
+		#content{width:100%; position: unset;}
+		#content #ct_head img{width:100%;}
+		
+		/* navWrap */
+		#ct_navWrap{width:100%; height:30px; padding-top:100px;}
+		#ct_navWrap #nav{width:960px; margin:0 auto;}
+
+		/* subNav1 */
+		#nav #subNav1{width:100%; line-height:40px; text-align:left;}
+		#nav #subNav1 li{display:inline; font-size:13px;}
+		#nav #subNav1 li a{padding:0 5px; color:#000;}
+		#nav #subNav1 li span{padding:0 5px;}
+
+		/* ct_content */
+		#ct_content{width:960px; margin:0 auto;}
+		#ct_content h3{width:100%; font-size:50px; padding:10px 0 5px; border-bottom:1px solid #aaa;}
+		#ct_content .summary{width:100%; font-size:12px; color:#777; padding:10px 0 20px;}
+
+		/* introducationArea */
+		.introducationArea{width:100%;}
+
+		.introducationArea:after{content:""; display:block; clear:both;}
+
+		/* royal */
+		.introTopArea{width:100%; overflow:hidden;}
+		.introTopArea ul {overflow: hidden; margin: 30px -5px 0;}
+		.introTopArea li {display: table; float: left; width: 33.333%; height: 300px; text-align: center; color: #fff;}
+		.introTopArea li div {display: table-cell; height: 300px; padding: 0 10px; border: 5px solid #fff; vertical-align: middle;}
+		.introTopArea li div strong {display: inline-block; padding: 0 0 5px; font-family: "HouschkaAltPro-Bold"; font-size: 20px;}
+		.introTopArea .intro_box01 {background: url("../img/img_introduction01.jpg") center no-repeat;}
+		.introTopArea .intro_box02 {background: url("../img/img_introduction02.jpg") center no-repeat;}
+		.introTopArea .intro_box03 {background: url("../img/img_introduction03.jpg") center no-repeat;}
+
+		.peopleArea {width:100%; margin-top:40px;}
+		.peopleArea h4 {margin:50px 0 10px; font-size:32px; font-weight:700; color:#894692;}
+		.peopleArea h4 span {color: #222; font-size: 20px;}
+
+		/* fitness */
+
+		.memberList4{float:left; width:33%; text-align:center;}
+		.memberList4 dl{margin:10px 5px 0; padding:0 0 10px;}
+		.memberList4 dt{display:block; height:120px; margin-bottom:15px; background-color:#222; border:1px solid #000; color:#fff;}
+		.memberList4 dt .title{display:block; margin-top:22px; font-size:22px; line-height:28px;}
+		.memberList4 dt .money{display:block; font-size:16px; font-weight:700; line-height:22px;}
+		.memberList4 dt .sum{display:block; font-size:14px; line-height:20px; color:#aaa;}
+
+		.peopleArea .detail {font-size: 16px; padding: 8px 0; line-height: 24px;}
+
+		.brochur_btn a {display: inline-block; padding: 15px 50px; margin: 30px 0; background: #222; border-radius: 3px; color: #fff; font-weight: 700; text-align: center; transition: all .3s;}
+
+		/* footer */
+		#footer{clear:both; width:100%; height:120px; background-color:rgba(0, 0, 0, 0.8); font-size:11px; position:relative; bottom:0; margin-top: 50px;}
+		#footerWrap{width:960px; height:120px; margin:0 auto;}
+		#footerWrap #ftcopy, #footerWrap #ftSelect, #footerWrap #sns{float:left;}
+
+		#ftcopy{width:660px; height:120px; padding-top:10px;}
+		#footer #footerLink p a{font-size:12px; color:#999;}
+		#footer #footerLink p span{color:#fff; font-size:9px; padding:0 10px 0 15px;}
+		#footer #address address{font-style:normal; color:#777; padding:15px 0;}
+		#footer #copy p{color:#777;}
+		
+		/* ftSelect */
+		#ftSelect{width:300px; height:110px; padding-top:10px;}
+		#ftSelect div{float:left;}
+		#ftSelect #trip{width:150px; height:50px;}
+		#ftSelect #language{width:150px; height:50px; line-height:50px;}
+		#ftSelect #language #rankSelect{padding:5px 10px; margin-top:5px;}
+
+		/* sns */
+		#sns{clear:both; width:100%; height:50px;}
+		#sns li{display:inline-block; margin-right:10px;}
+		#sns li.sns_F{width:50px; background-image:url("../img/btn_gnb_facebook.gif"); background-repeat:no-repeat;}
+		#sns li.sns_Fg{width:50px; background-image:url("../img/btn_gnb_facebook_g.gif"); background-repeat:no-repeat;}
+		#sns li.sns_T{width:50px; background-image:url("../img/btn_gnb_instartgram.gif"); background-repeat:no-repeat;}
+		#sns li a{width:50px; height:50px; display:block; text-indent:-9999px;}
+
+		@media screen and (min-width:1024px){
+			#head #gnb li.point{display:none;}
+			#content h3 span{display:none;}
+		}
+
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="headerWrap">
+			<div id="header">
+				<div id="head">
+					<div id="headLogo">
+						<h1><a href="../index.html" title="머큐어호텔">머큐어호텔</a></h1>
+					</div>
+					<ul id="gnb">
+						<li class="point"><img src="img/btn_m_gnb.png" alt="s_menu"/></li>
+						<li class="gnb_t"><a href="../HOTEL/room/ROOMS.html" title="HOTEL">HOTEL</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="../HOTEL/room/ROOMS.html" title="ROOM">ROOM</a></li><!--
+									 --><li><a href="../HOTEL/eat/EATnDRINK.html" title="EatnDrink">Eat &amp; Drink</a></li><!--
+									 --><li><a href="../HOTEL/facilities/FACILITIES.html" title="Facilities">Facilities</a></li><!--
+									 --><li><a href="../HOTEL/event/EVENT.html" title="Event">Event</a></li><!--
+									 --><li><a href="../HOTEL/special_offfers/Special_offers.html" title="Special offers">Special offers</a></li><!--
+									 --><li><a href="../HOTEL/membership/MEMBERSHIP.html" title="Membership">Membership</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="#" title="MAGAZINE">MAGAZINE</a></li>
+						<li class="gnb_t"><a href="../SUPPORT/notice.html" title="SUPPORT">SUPPORT</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="../SUPPORT/notice.html" title="Notice">Notice</a></li><!--
+									 --><li><a href="../SUPPORT/press.html" title="Press">Press</a></li><!--
+									 --><li><a href="../SUPPORT/reviews.html" title="Reviews">Reviews</a></li><!--
+									 --><li><a href="#" title="FAQ">FAQ</a></li><!--
+									 --><li><a href="../SUPPORT/inquiry.html" title="1:1 Inquiry">1:1 Inquiry</a></li><!--
+									 --><li><a href="../SUPPORT/contact.html" title="Contact Us">Contact Us</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="./introducation-detail.html" title="ABOUT">ABOUT</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="./introducation-detail.html" title="Introduction">Introduction</a></li><!--
+									 --><li><a href="./greeting-detail.html" title="Greeting">Greeting</a></li><!--
+									 --><li><a href="./advantage.html" title="Advantage">Advantage</a></li><!--
+									 --><li><a href="#" title="Location">Location</a></li><!--
+									 --><li><a href="./recruit-detail.html" title="Recruit">Recruit</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<h2>컨텐츠 영역</h2>
+			<div id="ct_navWrap">
+				<div id="nav">
+					<ul id="subNav1">
+						<li>HOME<span>&gt;</span></li>
+						<li>ABOUT<span>&gt;</span></li>
+						<li><a href="#" title="ABOUT"><strong>호텔 소개</strong></a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="ct_content">
+				<h3>호텔소개</h3>
+				<p class="summary">편리한 여행, 성공적인 비즈니스, 편안한 휴식을 위한 호텔. 머큐어 서울 앰배서더 강남 쏘도베를 소개합니다.</p>
+				<div class="introducationArea">
+					<div class="introTopArea">
+						<ul>
+							<li><div class="intro_box01"><strong>Somewhere to Stay</strong><br/>편리한 여행을 위해</div></li>
+							<li><div class="intro_box02"><strong>Somewhere to Work</strong><br/>성공적인 비즈니스를 위해</div></li>
+							<li><div class="intro_box03"><strong>Somewhere to Unwind</strong><br/>편안한 휴식을 위해</div></li>
+						</ul>
+					</div>
+					<div class="peopleArea">
+						<h4>You Know What You Need<br/>
+							<span>So Do We 당신께 필요한 모든 것을 저희는 알고 있습니다.</span>
+						</h4>
+						<div class="detail">
+							이러한 생각에서 저희 머큐어 서울 앰배서더 강남 쏘도베 호텔이 탄생하게 되었습니다.<br/><br/>
+							21층, 288개의 각기 다른 객실과 다양한 편의시설이 구비된 머큐어 서울 앰배서더 강남 쏘도베는 이 도시에서의 여정을 준비하는 여러분께 최적의 선택이 될 것입니다.<br/><br/>
+							서울의 심장부, 비즈니스의 중심인 강남에 자리한 머큐어 서울 앰배서더 강남 쏘도베는 여러분의 원활한 업무를 위한 모든 것을 제공 할 것입니다.<br/><br/>
+							역동적인 에너지의 서울이 한 눈에 들어오는 21층의 루프톱 바와 다채로운 음식의 레스토랑을 자랑하는 머큐어 서울 앰배서더 강남 쏘도베는 여독의 해소를 위한 휴식의 공간이 될 것입니다.<br/><br/>
+							머큐어 서울 앰배서더 강남 쏘도베는 여러분의 특별한 기억을 위한 최고의 호텔이 될 것입니다.
+						</div>
+					</div>
+				</div>
+				<div class="brochur_btn">
+					<a href="/data/download/Mercure_Brochure_2019.pdf" target="_blank">브로셔 다운로드</a>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div id="footerWrap">
+				<h2>풋터 영역</h2>
+				<div id="ftcopy">
+					<div id="footerLink">
+						<p>
+							<a href="#" title="개인정보취급방침"><strong>개인정보취급방침</strong></a><span>|</span>
+							<a href="#" title="이용약관">이용약관</a>
+						</p>
+					</div>
+					<div id="address">
+						<address>
+							상호 : (주)희앤썬 / 대표자명 : 우희명 서울시 강남구 역삼동 테헤란로 25길 10 (서울시 강남구 역삼동 642번지)<br/>
+							TEL : 02-2050-6000 / 사업자등록번호 : 211-81-61213 / 통신판매업신고번호 : 2013-서울강남-00319
+						</address>
+					</div>
+					<div id="copy">
+						<p>
+							Copyright 2016 Mercure Seoul Ambassador Gangnam Sodowe All Rights Reserved
+						</p>
+					</div>
+				</div>
+				<div id="ftSelect">
+					<div id="trip">
+						<a href="#" title="예약하기"><img src="../img/btn_gnb_trip.gif" alt="호텔예약"/></a>
+					</div>
+					<div id="language">
+						<select id="rankSelect">
+							<option value="Select Language">Select Language</option>
+							<option value="English">English</option>
+							<option value="Chinese">Chinese</option>
+							<option value="Japanese">Japanese</option>
+							<option value="Korean">Korean</option>
+						</select>
+					</div>
+					<div id="sns">
+						<ul>
+							<li class="sns_F">
+								<a href="#" title="facebook1">facebook 바로가기</a>
+							</li>
+							<li class="sns_Fg">
+								<a href="#" title="facebook2">facebook 바로가기</a>
+							</li>
+							<li class="sns_T">
+								<a href="#" title="Instargram">Instargram 바로가기</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

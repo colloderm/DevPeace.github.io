@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title> FACILITIES </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+  <script type="text/javascript" src="../../js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="../../js/header.js"></script>
+   <script>
+	$(function(){
+			
+			// 네비
+			$(".panel li:not(:first)").hide();			
+			$("#subNav2 li a").bind("click focusin",function(){
+				$(".panel li").hide();
+				$($(this).attr("href")).show();
+				$("#subNav2 li").removeClass("first");
+				$(this).parent().addClass("first");
+			});
+
+			/* 탭 네비
+			$("#nav #subNav2 li").mouseover(function(){
+				$(this).clearQueue().css({"backgroundColor":"#333"});
+				$(this).clearQueue().children("a").css({"color":"#fff"});
+			}).mouseout(function(){
+				$(this).clearQueue().css({"backgroundColor":"#fff"});
+				$(this).clearQueue().children("a").css({"color":"#333"});
+			});*/
+
+			// 갤러리 이미지
+			$(".textBox").mouseover(function(){
+				$(this).prev().children("img").css({"opacity":"0.5"});
+				$(this).css({"backgroundColor":"#333"});
+				$(this).children("a").css({"color":"#fff"});
+			}).mouseout(function(){
+				$(this).prev().children("img").css({"opacity":"1"});
+				$(this).css({"backgroundColor":"#fff"});
+				$(this).children("a").css({"color":"#000"});
+			});
+			
+			// 갤러리 페이지 버튼
+			$("#paginate a").mouseover(function(){
+				$(this).css({"backgroundColor":"#000","color":"#fff"});
+			}).mouseout(function(){
+				$(this).css({"backgroundColor":"#fff","color":"#000"});
+			});
+
+			// 갤러리 이미지 슬라이드
+			$("#film").prepend($(".scene:last"));
+			$("#film").css({"marginLeft":"-1280px"});
+			$(".button1").click(function(){
+				$("#film").animate({"marginLeft":"-=1280px"},1000,"swing",function(){
+					$("#film").append($(".scene:first"));
+					$("#film").css({"marginLeft":"-1280px"});
+				});
+			});
+			$(".button2").click(function(){
+				$("#film").animate({"marginLeft":"+=1280px"},1000,"swing",function(){
+					$("#film").prepend($(".scene:last"));
+					$("#film").css({"marginLeft":"-1280px"});
+				});
+			});
+
+			// 갤러리 모달팝업
+			$("#view, #full").hide();
+			$(".list span").hide();			
+			width = $("#modal").width();
+
+			$("#film1").prepend($(".scene:last"));
+			$("#film1").css({"marginLeft":"-"+width+"px"});
+
+			// 다음 버튼
+			$("#right1").click(function(){
+				film1("next", "fast");
+			});
+			// 이전 버튼
+			$("#left1").click(function(){
+				film1("prev", "fast");
+			});
+
+			// 동그라미 버튼
+			$(".list .thumb").click(function(){
+				$("#view, #full").fadeIn();
+				// 현재 지점
+				$now = Number($("#modal dd img").attr("src").substring(17,19));
+				if($now == 12){$now = 0;}
+				// 목표 지점
+				$target = $(this).text();
+				// 함수
+				choice($target, $now);
+				console.log("현재진행 : "+$now+" / 목표지점 : "+$target);
+				return false;
+			});
+			// 이전 다음 버튼에 대한 애니메이션
+			function film1(target, speed){
+				width = $("#modal").width();
+				if(target == "next"){
+					$("#film1").animate({"marginLeft":"-="+width+"px"},speed, "linear", function(){
+						$("#film1").css({"marginLeft":"-"+width+"px"});
+						$(".scene1:first").appendTo("#film1");
+					});
+				}
+				else if(target == "prev"){
+					$("#film1").animate({"marginLeft":"+="+width+"px"},speed, "linear", function(){
+						$("#film1").css({"marginLeft":"-"+width+"px"});
+						$(".scene1:last").prependTo("#film1");
+					});
+				}
+			}
+			function choice($target, $now){
+				// 현재 지점부터 ,목표지점까지 달리기
+				// $now(진핸된 지점),	$target(본인이 찍은 지점)
+				for(var index = $now; index < $target; index++){film1("next",100);}
+				for(var index = $now; index > $target; index--){film1("prev",100);}
+
+				$("#full").click(function(){$("#view, #full").fadeOut();});
+			}
+		});
+  </script>
+  <style type="text/css">
+
+		#wrap{width:100%; height:100%;}
+
+		/* header */
+		#headerWrap{width:100%; height:60px; background-color:rgba(0, 0, 0, 0.4); position:absolute; left:0; top:0; z-index:1;}
+		#header {width:960px; height:100px; position:relative; margin:0 auto; overflow:hidden;}
+
+		#head div{float:left;}
+
+		/* headLogo */
+		#headLogo{width:200px; height:60px;}
+		#headLogo h1{
+								width:150px; height:60px;
+								background-image:url("../../img/logo_mercure.png"); 
+								background-repeat:no-repeat; 
+								background-size:70% 100%;
+								background-position:right;
+							}
+		#headLogo h1 a{width:100%; height:100%; display:block;  text-indent:-9999px;}
+
+		/* head gnb */
+		#head #gnb{width:760px; height:100px; margin-left:200px;}
+		#head #gnb li a{color:#bababa; font-weight:700;}
+		#head #gnb li.gnb_t{width:187.5px; height:60px; line-height:60px; text-align:center; float:left;}
+
+		#head #gnb li div.subline{width:100%; position:fixed; left:0; top:60px; background-color:rgba(0, 0, 0, 0.2);}
+		#head #gnb li ul.gnb_st{font-size:13px;  height:40px; line-height:40px;  text-align:center; width:960px; margin:0 auto; }
+		#head #gnb li ul.gnb_st li{text-align:center; display:inline-block;}
+		#head #gnb li ul.gnb_st li a{padding:0 20px;}
+
+		/*content */
+		#content{width:100%;}
+		#ct_head{width:100%; background-color:#ddd;}
+		#screen{width:1280px; height:520px; margin:0 auto; position:relative; overflow:hidden;}
+		#film{width:10240px;}
+		.scene{float:left;}
+
+		ul#film:after{content:""; display:block; clear:both;}
+		#ct_head ul li img{width:100%; height:100%;}
+
+		#btn p{position:absolute; left:0; bottom:0; width:50px; height:100px;}
+		#btn p img{width:100%; height:100%; cursor:pointer;}
+		#btn p.button1{left:96.1%;}
+		
+		/* navWrap */
+		#ct_navWrap{width:100%; height:100px; padding-top:20px;}
+		#ct_navWrap #nav{width:960px; margin:0 auto;}
+
+		/* subNav1 + subNav2 */
+		#nav #subNav1{width:100%; line-height:40px; text-align:left;}
+		#nav #subNav1 li{display:inline; font-size:13px;}
+		#nav #subNav1 li a{padding:0 5px; color:#000;}
+		#nav #subNav1 li span{padding:0 5px;}
+
+		#nav #subNav2{width:100%; overflow:hidden; padding:10px 0 30px;}
+		#nav #subNav2 li{width:25%; float:left; border:1px solid #ccc; text-align:center; font-size:14px; box-sizing:border-box;}
+		#nav #subNav2 li a{display:block; padding:10px 0;}
+		#nav #subNav2 li.first a{background-color:#333; color:#fff;}
+
+		/* ct_content */
+		#ct_content{width:960px; margin:0 auto;}
+		#ct_content h3{width:100%; font-size:50px; padding:10px 0 5px; border-bottom:1px solid #aaa;}
+		#ct_content .summary{width:100%; font-size:12px; color:#777; padding:10px 0 20px;}
+
+		/* ct_Text */
+		.ct_Text{width:100%;}
+		.ct_Text h4{color:#894692; font-size:18px; padding:40px 0 10px;}
+		.ct_Text p {font-size:14px; padding:2px 0;}
+
+		/* ct_box + ct_box1 + ct_box2 */
+		.ct_box{width:100%; height:350px; padding-top:50px; overflow:hidden;}
+		.ct_box .ct_box1, .ct_box, .ct_box2{float:left;}
+		.ct_box h4{font-size:18px; padding-bottom:20px; padding-top:30px;}
+		.ct_box h4 img{vertical-align:middle; padding-right:5px;}
+		.ct_box p{font-weight:bold; font-size:13px; padding:5px 0;}
+		.ct_box p span{font-weight:400; font-size:12px;}
+		.ct_box .ct_box1{width:478px; height:280px; border:1px solid #ddd; text-indent:30px;}
+		.ct_box .ct_box2{width:479px; height:280px; border:1px solid #ddd; border-left:none;
+									background-image:url("../../img/img_fitness.jpg"); 
+									background-repeat:no-repeat;
+									background-size:100% 100%;}
+		.ct_box .ct_box2 .box2Text{padding-top:30px;}
+
+		/* gallery_list */
+		.gallery_list{width:100%;}
+		.gallery_list .list{width:300px; height:100%; float:left; margin:20px 0 20px 15px; text-align:center;}
+		.gallery_list p.thumb{width:100%; height:160px;}
+		.gallery_list p.thumb img{width:298px; height:100%; border:1px solid #ccc; border-bottom:none;}
+		.gallery_list div.textBox{width:298px; height:90px; line-height:30px; border:1px solid #ccc; border-top:none;}
+		.gallery_list div.textBox a{display:block; width:100%; height:80px; padding-top:10px; font-size:14px; transition:all .3s;}
+		.gallery_list div.textBox strong{width:100%;}
+
+		/*######################### 갤러리 #######################*/
+		#modal{width:720px;}
+		#film1{width:1200%; position:relative;}
+		.scene1{float:left;}
+		.scene1 img{width:720px; height:480px;}
+
+		#film1:after{content:""; display:block; clear:both;}
+
+		#full{width:100%; height:100%; background-color:rgba(0,0,0,0.4); position:fixed; left:0; top:0;}
+		#view{
+			width:720px; height:530px; overflow:hidden;
+			background-color:#fff; position:fixed; z-index:7; color:#000; text-align:center;
+			left:50%; top:50%; box-shadow:10px 10px 10px rgba(0,0,0,0.5); 
+			margin-left:-360px; margin-top:-240px;
+		}
+		#view p{padding:5px 0;}
+
+		/* 왼쪽 오른쪽 버튼 */
+		#left1{position:absolute; left:0; top:0; font-size:20px; color:#fff; font-weight:bold; width:30px; height:480px; background-color:rgba(0,0,0,0.4); cursor:pointer;}
+		#left1 p{padding-top:255px;}
+		#right1{position:absolute; left:96%; top:0; font-size:20px; color:#fff; font-weight:bold; width:30px; height:480px; background-color:rgba(0,0,0,0.4); cursor:pointer;}
+		#right1 p{padding-top:255px;}
+
+		#paginate{width:100%; margin:10px 0; text-align:center;}
+		#paginate a{display:inline-block; width:30px; height:30px; line-height:30px; font-size:14px; color:#222; border-radius:5px; transition:all .3s;}
+
+		/* footer */
+		#footer{clear:both; width:100%; height:120px; background-color:rgba(0, 0, 0, 0.8); font-size:11px; position:relative; bottom:0;}
+		#footerWrap{width:960px; height:120px; margin:0 auto;}
+		#footerWrap #ftcopy, #footerWrap #ftSelect, #footerWrap #sns{float:left;}
+
+		#ftcopy{width:660px; height:120px; padding-top:10px;}
+		#footer #footerLink p a{font-size:12px; color:#999;}
+		#footer #footerLink p span{color:#fff; font-size:9px; padding:0 10px 0 15px;}
+		#footer #address address{font-style:normal; color:#777; padding:15px 0;}
+		#footer #copy p{color:#777;}
+		
+		/* ftSelect */
+		#ftSelect{width:300px; height:110px; padding-top:10px;}
+		#ftSelect div{float:left;}
+		#ftSelect #trip{width:150px; height:50px;}
+		#ftSelect #language{width:150px; height:50px; line-height:50px;}
+		#ftSelect #language #rankSelect{padding:5px 10px; margin-top:5px;}
+
+		/* sns */
+		#sns{clear:both; width:100%; height:50px;}
+		#sns li{display:inline-block; margin-right:10px;}
+		#sns li.sns_F{width:50px; background-image:url("../../img/btn_gnb_facebook.gif"); background-repeat:no-repeat;}
+		#sns li.sns_Fg{width:50px; background-image:url("../../img/btn_gnb_facebook_g.gif"); background-repeat:no-repeat;}
+		#sns li.sns_T{width:50px; background-image:url("../../img/btn_gnb_instartgram.gif"); background-repeat:no-repeat;}
+		#sns li a{width:50px; height:50px; display:block; text-indent:-9999px;}
+
+		@media screen and (min-width:1024px){
+			#head #gnb li.point{display:none;}
+			#content h3 span{display:none;}
+		}
+
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="headerWrap">
+			<div id="header">
+				<div id="head">
+					<div id="headLogo">
+						<h1><a href="../../index.html" title="머큐어호텔">머큐어호텔</a></h1>
+					</div>
+					<ul id="gnb">
+						<li class="point"><img src="img/btn_m_gnb.png" alt="s_menu"/></li>
+						<li class="gnb_t"><a href="../room/ROOMS.html" title="HOTEL">HOTEL</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="../room/ROOMS.html" title="ROOM">ROOM</a></li><!--
+									 --><li><a href="../eat/EATnDRINK.html" title="EatnDrink">Eat &amp; Drink</a></li><!--
+									 --><li><a href="../facilities/FACILITIES.html" title="Facilities">Facilities</a></li><!--
+									 --><li><a href="../event/EVENT.html" title="Event">Event</a></li><!--
+									 --><li><a href="../special_offfers/Special_offers.html" title="Special offers">Special offers</a></li><!--
+									 --><li><a href="../membership/MEMBERSHIP.html" title="Membership">Membership</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="#" title="MAGAZINE">MAGAZINE</a></li>
+						<li class="gnb_t"><a href="../../SUPPORT/notice.html" title="SUPPORT">SUPPORT</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="../../SUPPORT/notice.html" title="Notice">Notice</a></li><!--
+									 --><li><a href="../../SUPPORT/press.html" title="Press">Press</a></li><!--
+									 --><li><a href="../../SUPPORT/reviews.html" title="Reviews">Reviews</a></li><!--
+									 --><li><a href="#" title="FAQ">FAQ</a></li><!--
+									 --><li><a href="../../SUPPORT/inquiry.html" title="1:1 Inquiry">1:1 Inquiry</a></li><!--
+									 --><li><a href="../../SUPPORT/contact.html" title="Contact Us">Contact Us</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="#" title="ABOUT">ABOUT</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="#" title="Introduction">Introduction</a></li><!--
+									 --><li><a href="#" title="Greeting">Greeting</a></li><!--
+									 --><li><a href="#" title="Advantage">Advantage</a></li><!--
+									 --><li><a href="#" title="Location">Location</a></li><!--
+									 --><li><a href="#" title="Recruit">Recruit</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<h2>컨텐츠 영역</h2>
+			<div id="ct_head">
+				<div id="screen">
+					<ul id="film">
+						<li class="scene"><img src="../../img/FitnessnSauna-1-960.jpg" alt="fitness0" class="film0"/></li>
+						<li class="scene"><img src="../../img/FitnessnSauna-2-960.jpg" alt="fitness1" class="film1"/></li>
+						<li class="scene"><img src="../../img/FitnessnSauna-3-960.jpg" alt="fitness2" class="film2"/></li>
+						<li class="scene"><img src="../../img/FitnessnSauna-4-960.jpg" alt="fitness3" class="film3"/></li>
+						<li class="scene"><img src="../../img/FitnessnSauna-5-960.jpg" alt="fitness4" class="film4"/></li>
+						<li class="scene"><img src="../../img/FitnessnSauna-6-960.jpg" alt="fitness5" class="film5"/></li>
+						<li class="scene"><img src="../../img/FitnessnSauna-7-960.jpg" alt="fitness6" class="film6"/></li>
+						<li class="scene"><img src="../../img/FitnessnSauna-8-960.jpg" alt="fitness7" class="film7"/></li>
+					</ul>
+					<div id="btn">
+						<p class="button1"><img src="../../img/btn_images_gallery_r.gif" alt="nextBtn" class="next"/></p>
+						<p class="button2"><img src="../../img/btn_images_gallery_l.gif" alt="prevBtn" class="prev"/></p>
+					</div>
+				</div>
+			</div>
+			<div id="ct_navWrap">
+				<div id="nav">
+					<ul id="subNav1">
+						<li>HOME<span>&gt;</span></li>
+						<li>HOTEL<span>&gt;</span></li>
+						<li><a href="#" title="FITNESSnSAUNA"><strong>FITNESS &amp; SAUNA</strong></a></li>
+					</ul>
+					<ul id="subNav2">
+						<li class="first"><a href="#fitnessnsauna" title="FITNESSnSAUNA">FITNESS &amp; SAUNA</a></li>
+						<li><a href="#lounge" title="LOUNGE">LOUNGE</a></li>
+						<li><a href="#gallery" title="GALLERY">GALLERY</a></li>
+						<li><a href="#laundry" title="LAUNDRY">LAUNDRY</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="ct_content">
+				<ul class="panel">
+					<li id="fitnessnsauna">
+						<h3><a href="http://www.mercureseoul.com/kr/hotel/facilities/fitness-detail" title="FITNESSnSAUNA">FITNESS &amp; SAUNA</a></h3>
+						<p class="summary">셀프 바디 체크가 가능한 최신 설비의 피트니스 클럽 시설과 심신의 피로를 풀어 줄 편안하고 안락한 공간의 사우나 시설을 소개합니다.</p>
+						<div class="ct_Text">
+							<h4>Fitness</h4>
+							<p>
+								- 투숙 고객은 무료 이용이 가능합니다.
+							</p>
+							<p>
+								- 회원권 문의 02-2050-6088
+							</p>
+							<p>
+								- 연중무휴 06:00~23:00
+							</p>
+							<h4>Sauna</h4>
+							<p>
+								- 일반 고객 22,000원 (VAT 포함)
+							</p>
+							<p>
+								- 투숙 고객 5,500원 (VAT 포함)
+							</p>
+							<p>
+								- 연중무휴 06:00~23:00
+							</p>
+						</div>
+						<div class="ct_box">
+							<div class="ct_box1">
+								<h4><img src="../../img/ico_infobox1.png" alt=""/>Basic Info</h4>
+								<p>위치  <span>지하 1층</span></p>
+								<p>영업시간 <span>06:00~23:00</span></p>
+								<p>문의 <span>02-2050-6000</span></p>
+								<p>유의사항 <span>만 16세 이상 고객에 한해 입장 가능합니다.</span></p>
+							</div>
+							<div class="ct_box2"></div>
+						</div>
+					</li>
+					<li id="lounge">
+						<h3><a href="http://www.mercureseoul.com//kr/hotel/facilities/lounge-detail.html" title="LOUNGE">LOUNGE</a></h3>
+						<p class="summary">프리빌리지 투숙 고객만을 위한 전용 공간인 프리빌리지 라운지와 개인서재를 모티브로 한 디자인의 안락한 공간인 비즈니스 라운지를 소개합니다.</p>
+						<div class="ct_Text">
+							<h4>Privilege Lounge</h4>
+							<p>
+								- Coffee &amp; Tea 10:00~22:00
+							</p>
+							<p>
+								- Happy Hour 18:00~20:00
+							</p>
+							<p>
+								- 프리빌리지 투숙 고객은 미팅 룸 2시간 무료 이용이 가능합니다.
+							</p>
+							<h4>Business Lounge</h4>
+							<p>
+								- 옥타곤 미팅 룸 사용 가능 (4~6명)
+							</p>
+							<p>
+								- 인터넷 / 이메일 서비스
+							</p>
+							<p>
+								- 인쇄 / 복사(흑백,컬러) / 스캔 / 팩스 등의 서비스
+							</p>
+						</div>
+						<div class="ct_box">
+							<div class="ct_box1">
+								<h4><img src="../../img/ico_infobox1.png" alt=""/>Basic Info</h4>
+								<p>위치 <span>로비 (1층)</span></p>
+								<p>문의 <span>02-2050-6000</span></p>
+							</div>
+							<div class="ct_box2"></div>
+						</div>
+					</li>
+					<li id="gallery">
+						<h3><a href="http://www.mercureseoul.com//kr/hotel/facilities/gallery.html" title="GALLERY">GALLERY</a></h3>
+						<p class="summary">머큐어의 감성을 담은 예술 공간, 머큐어 갤러리를 소개합니다.</p>
+						<div class="gallery_list">
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery01.jpg" title="이미지01"><img src="../../img/gallery01.jpg" alt="list_01"/><span>0</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox1">
+										<strong>My Life</strong><br/>
+										2016-01-15 ~ 2016-02-22
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery02.jpg" title="이미지02"><img src="../../img/gallery02.jpg" alt="list_02"/><span>1</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox2">
+										<strong>이혜원 차(茶) 도구</strong><br/>
+										2016-01-01 ~ 2016-01-24
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery03.jpg" title="이미지03"><img src="../../img/gallery03.jpg" alt="list_03"/><span>2</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox3">
+										<strong>Myth of our time</strong><br/>
+										2015-12-28 ~ 2016-01-15
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery04.jpg" title="이미지04"><img src="../../img/gallery04.jpg" alt="list_04"/><span>3</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox4">
+										<strong>도자기</strong><br/>
+										2015-11-13 ~ 2015-12-28
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery05.jpg" title="이미지05"><img src="../../img/gallery05.jpg" alt="list_05"/><span>4</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox5">
+										<strong>Life, Relationship and poetry</strong><br/>
+										2015-11-13 ~ 2015-12-28
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery06.jpg" title="이미지06"><img src="../../img/gallery06.jpg" alt="list_06"/><span>5</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox6">
+										<strong>Un Voyage</strong><br/>
+										2015-09-11 ~ 2015-11-13
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery07.jpg" title="이미지07"><img src="../../img/gallery07.jpg" alt="list_07"/><span>6</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox7">
+										<strong>La memoire</strong><br/>
+										2015-07-10 ~ 2015-09-11
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery08.jpg" title="이미지08"><img src="../../img/gallery08.jpg" alt="list_08"/><span>7</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox8">
+										<strong>The Garden of light</strong><br/>
+										2015-03-20 ~ 2015-04-30
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery09.jpg" title="이미지09"><img src="../../img/gallery09.jpg" alt="list_09"/><span>8</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox9">
+										<strong>Shadow Ball</strong><br/>
+										2015-03-20 ~ 2015-04-30
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery10.jpg" title="이미지10"><img src="../../img/gallery10.jpg" alt="list_10"/><span>9</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox10">
+										<strong>Reminiscence</strong><br/>
+										2015-01-30 ~ 2015-03-20
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery11.jpg" title="이미지11"><img src="../../img/gallery11.jpg" alt="list_11"/><span>10</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox11">
+										<strong>Jewels of passion</strong><br/>
+										2014-12-19 ~ 2015-01-09
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<p class="thumb"><a href="../../img/gallery12.jpg" title="이미지12"><img src="../../img/gallery12.jpg" alt="list_12"/><span>11</span></a></p>
+								<div class="textBox">
+									<a href="#" title="listBox12">
+										<strong>The behavior patterns of desire_ver1.5</strong><br/>
+										2014-12-19 ~ 2015-01-30
+									</a>
+								</div>
+							</div>
+						</div>
+						<div id="paginate">
+							<a href="#" title="page1">1</a>
+							<a href="#" title="page2">2</a>
+						</div>
+						<div id="modal">
+							<div id="view">
+								<dl id="film1">
+									<dd class="scene1"><img src="../../img/gallery01.jpg" alt="이미지1"/><p><strong>My Life</strong><br/>
+										2016-01-15 ~ 2016-02-22</p></dd>
+									<dd class="scene1"><img src="../../img/gallery02.jpg" alt="이미지2"/><p><strong>이혜원 차(茶) 도구</strong><br/>
+										2016-01-01 ~ 2016-01-24</p></dd>
+									<dd class="scene1"><img src="../../img/gallery03.jpg" alt="이미지3"/><p><strong>Myth of our time</strong><br/>
+										2015-12-28 ~ 2016-01-15</p></dd>
+									<dd class="scene1"><img src="../../img/gallery04.jpg" alt="이미지4"/><p><strong>도자기</strong><br/>
+										2015-11-13 ~ 2015-12-28</p></dd>
+									<dd class="scene1"><img src="../../img/gallery05.jpg" alt="이미지5"/><p><strong>Life, Relationship and poetry</strong><br/>
+										2015-11-13 ~ 2015-12-28</p></dd>
+									<dd class="scene1"><img src="../../img/gallery06.jpg" alt="이미지6"/><p><strong>Un Voyage</strong><br/>
+										2015-09-11 ~ 2015-11-13</p></dd>
+									<dd class="scene1"><img src="../../img/gallery07.jpg" alt="이미지7"/><p><strong>La memoire</strong><br/>
+										2015-07-10 ~ 2015-09-11</p></dd>
+									<dd class="scene1"><img src="../../img/gallery08.jpg" alt="이미지8"/><p><strong>The Garden of light</strong><br/>
+										2015-03-20 ~ 2015-04-30</p></dd>
+									<dd class="scene1"><img src="../../img/gallery09.jpg" alt="이미지9"/><p><strong>Shadow Ball</strong><br/>
+										2015-03-20 ~ 2015-04-30</p></dd>
+									<dd class="scene1"><img src="../../img/gallery10.jpg" alt="이미지10"/><p><strong>Reminiscence</strong><br/>
+										2015-01-30 ~ 2015-03-20</p></dd>
+									<dd class="scene1"><img src="../../img/gallery11.jpg" alt="이미지11"/><p><strong>Jewels of passion</strong><br/>
+										2014-12-19 ~ 2015-01-09</p></dd>
+									<dd class="scene1"><img src="../../img/gallery12.jpg" alt="이미지12"/><p><strong>The behavior patterns of desire_ver1.5</strong><br/>
+										2014-12-19 ~ 2015-01-30</p></dd>
+								</dl>
+								<div id="left1"><p>&lt;</p></div>
+								<div id="right1"><p>&gt;</p></div>
+							</div>
+							<div id="full"></div>
+						</div>
+					</li>
+					<li id="laundry">
+						<h3><a href="http://www.mercureseoul.com//kr/hotel/facilities/lounge-detail.html" title="LAUNDRY">LAUNDRY</a></h3>
+						<p class="summary">깔끔한 비즈니스를 위해 24시간 운영되는 머큐어 서울 앰배서더 강남 쏘도베의 세탁실을 소개합니다.</p>
+						<div class="ct_Text">
+							<h4>Facilities</h4>
+							<p>
+								- 세제
+							</p>
+							<p>
+								- 다리미 / 다리미 판
+							</p>
+							<h4>Price</h4>
+							<p>
+								- 일회용 세제 1팩 (세탁 1회) 500원
+							</p>
+							<p>
+								- 코인 세탁기 1회 (25분 소요) 2,500원
+							</p>
+							<p>
+								- 코인 건조기 1회 (45분 소요) 2,500원
+							</p>
+						</div>
+						<div class="ct_box">
+							<div class="ct_box1">
+								<h4><img src="../../img/ico_infobox1.png" alt=""/>Basic Info</h4>
+								<p>위치 <span>지하 1층</span></p>
+								<p>영업시간 <span>연중무휴</span></p>
+								<p>문의 <span>02-2050-6000</span></p>
+							</div>
+							<div class="ct_box2"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="footer">
+			<div id="footerWrap">
+				<h2>풋터 영역</h2>
+				<div id="ftcopy">
+					<div id="footerLink">
+						<p>
+							<a href="#" title="개인정보취급방침"><strong>개인정보취급방침</strong></a><span>|</span>
+							<a href="#" title="이용약관">이용약관</a>
+						</p>
+					</div>
+					<div id="address">
+						<address>
+							상호 : (주)희앤썬 / 대표자명 : 우희명 서울시 강남구 역삼동 테헤란로 25길 10 (서울시 강남구 역삼동 642번지)<br/>
+							TEL : 02-2050-6000 / 사업자등록번호 : 211-81-61213 / 통신판매업신고번호 : 2013-서울강남-00319
+						</address>
+					</div>
+					<div id="copy">
+						<p>
+							Copyright 2016 Mercure Seoul Ambassador Gangnam Sodowe All Rights Reserved
+						</p>
+					</div>
+				</div>
+				<div id="ftSelect">
+					<div id="trip">
+						<a href="#" title="예약하기"><img src="../../img/btn_gnb_trip.gif" alt="호텔예약"/></a>
+					</div>
+					<div id="language">
+						<select id="rankSelect">
+							<option value="Select Language">Select Language</option>
+							<option value="English">English</option>
+							<option value="Chinese">Chinese</option>
+							<option value="Japanese">Japanese</option>
+							<option value="Korean">Korean</option>
+						</select>
+					</div>
+					<div id="sns">
+						<ul>
+							<li class="sns_F">
+								<a href="#" title="facebook1">facebook 바로가기</a>
+							</li>
+							<li class="sns_Fg">
+								<a href="#" title="facebook2">facebook 바로가기</a>
+							</li>
+							<li class="sns_T">
+								<a href="#" title="Instargram">Instargram 바로가기</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

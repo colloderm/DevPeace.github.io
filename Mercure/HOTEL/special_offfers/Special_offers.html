@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title> new document </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+  <script type="text/javascript" src="../../js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="../../js/header.js"></script>
+  <script type="text/javascript" src="js/special_offers.js"></script>
+  <style type="text/css">
+
+		#wrap{width:100%; height:100%;}
+
+		/* header */
+		#headerWrap{width:100%; height:60px; background-color:rgba(0, 0, 0, 0.4); position:absolute; left:0; top:0;}
+		#header {width:960px; height:100px; position:relative; margin:0 auto; overflow:hidden;}
+
+		#head div{float:left;}
+
+		/* headLogo */
+		#headLogo{width:200px; height:60px;}
+		#headLogo h1{
+								width:150px; height:60px;
+								background-image:url("../../img/logo_mercure.png"); 
+								background-repeat:no-repeat; 
+								background-size:70% 100%;
+								background-position:right;
+							}
+		#headLogo h1 a{width:100%; height:100%; display:block;  text-indent:-9999px;}
+
+		/* head gnb */
+		#head #gnb{width:760px; height:100px; margin-left:200px;}
+		#head #gnb li a{color:#bababa; font-weight:700;}
+		#head #gnb li.gnb_t{width:187.5px; height:60px; line-height:60px; text-align:center; float:left;}
+		#head #gnb li.gnb_t:hover a{color:#fff;}
+
+		#head #gnb li div.subline{width:100%; position:fixed; left:0; top:60px; background-color:rgba(0, 0, 0, 0.2);}
+		#head #gnb li ul.gnb_st{font-size:13px;  height:40px; line-height:40px;  text-align:center; width:960px; margin:0 auto; }
+		#head #gnb li ul.gnb_st li{text-align:center; display:inline-block;}
+		#head #gnb li ul.gnb_st li:hover{background-color:rgba(0,0,0,0.3);}
+		#head #gnb li ul.gnb_st li a{padding:0 20px;}
+		#head #gnb li ul.gnb_st li:hover a{color:red; }
+
+		/*content */
+		#content{width:100%;}
+		#content #ct_head img{width:100%;}
+		
+		/* navWrap */
+		#ct_navWrap{width:100%; height:30px; padding-top:20px;}
+		#ct_navWrap #nav{width:960px; margin:0 auto;}
+
+		/* subNav1 */
+		#nav #subNav1{width:100%; line-height:40px; text-align:left;}
+		#nav #subNav1 li{display:inline; font-size:13px;}
+		#nav #subNav1 li a{padding:0 5px; color:#000;}
+		#nav #subNav1 li span{padding:0 5px;}
+
+		/* ct_content */
+		#ct_content{width:960px; margin:0 auto;}
+		#ct_content h3{width:100%; font-size:50px; padding:10px 0 5px; border-bottom:1px solid #aaa;}
+		#ct_content #summary{width:100%; font-size:12px; color:#777; padding:10px 0 20px;}
+
+		/* #specialWrap L + R */
+		#specialWrap{width:100%; margin:30px 0;}
+		#specialWrap p{float:left; margin-bottom:15px;}
+		#specialWrap p.more{float:right; margin-right:15px; border:1px solid #ccc; border-radius:3px;}
+		#specialWrap p.more a{display:block; font-size:13px; padding:1px 10px 4px;}
+		#specialWrap .box{margin-bottom:50px;}
+		#L{width:50%; float:left;}
+		#L p strong{text-transform:uppercase;}
+		#L ul{width:100%;}
+		#L ul li{margin:10px 10px 0 0;}
+		#L ul li img{width:100.5%;}
+		#L .box{width:100%; border:1px solid #ddd; border-top:none;}
+		#L .box a{display:block; font-size:14px; padding:10px 20px 20px 20px;}
+		#L .box a strong{display:block; padding: 5px 0 5px;}
+
+		#R{width:50%; float:right;}
+		#R ul{width:100%;}
+		#R ul li{margin:10px 10px 0 0;}
+		#R ul li img{width:100.5%;}
+		#R .box{width:100%; border:1px solid #ddd; border-top:none;}
+		#R .box a{display:block; font-size:14px; padding:10px 20px 20px;}
+		#R .box a strong{display:block; padding: 5px 0 5px;}
+		
+
+		/* footer */
+		#footer{clear:both; width:100%; height:120px; background-color:rgba(0, 0, 0, 0.8); font-size:11px; position:relative; bottom:0;}
+		#footerWrap{width:960px; height:120px; margin:0 auto;}
+		#footerWrap #ftcopy, #footerWrap #ftSelect, #footerWrap #sns{float:left;}
+
+		#ftcopy{width:660px; height:120px; padding-top:10px;}
+		#footer #footerLink p a{font-size:12px; color:#999;}
+		#footer #footerLink p span{color:#fff; font-size:9px; padding:0 10px 0 15px;}
+		#footer #address address{font-style:normal; color:#777; padding:15px 0;}
+		#footer #copy p{color:#777;}
+		
+		/* ftSelect */
+		#ftSelect{width:300px; height:110px; padding-top:10px;}
+		#ftSelect div{float:left;}
+		#ftSelect #trip{width:150px; height:50px;}
+		#ftSelect #language{width:150px; height:50px; line-height:50px;}
+		#ftSelect #language #rankSelect{padding:5px 10px; margin-top:5px;}
+
+		/* sns */
+		#sns{clear:both; width:100%; height:50px;}
+		#sns li{display:inline-block; margin-right:10px;}
+		#sns li.sns_F{width:50px; background-image:url("../../img/btn_gnb_facebook.gif"); background-repeat:no-repeat;}
+		#sns li.sns_Fg{width:50px; background-image:url("../../img/btn_gnb_facebook_g.gif"); background-repeat:no-repeat;}
+		#sns li.sns_T{width:50px; background-image:url("../../img/btn_gnb_instartgram.gif"); background-repeat:no-repeat;}
+		#sns li a{width:50px; height:50px; display:block; text-indent:-9999px;}
+
+		@media screen and (min-width:1024px){
+			#head #gnb li.point{display:none;}
+			#content h3 span{display:none;}
+		}
+
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="headerWrap">
+			<div id="header">
+				<div id="head">
+					<div id="headLogo">
+						<h1><a href="../../index.html" title="머큐어호텔">머큐어호텔</a></h1>
+					</div>
+					<ul id="gnb">
+						<li class="point"><img src="img/btn_m_gnb.png" alt="s_menu"/></li>
+						<li class="gnb_t"><a href="../room/ROOMS.html" title="HOTEL">HOTEL</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="../room/ROOMS.html" title="ROOM">ROOM</a></li><!--
+									 --><li><a href="../eat/EATnDRINK.html" title="EatnDrink">Eat &amp; Drink</a></li><!--
+									 --><li><a href="../facilities/FACILITIES.html" title="Facilities">Facilities</a></li><!--
+									 --><li><a href="../event/EVENT.html" title="Event">Event</a></li><!--
+									 --><li><a href="../special_offfers/Special_offers.html" title="Special offers">Special offers</a></li><!--
+									 --><li><a href="../membership/MEMBERSHIP.html" title="Membership">Membership</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="#" title="MAGAZINE">MAGAZINE</a></li>
+						<li class="gnb_t"><a href="../../SUPPORT/notice.html" title="SUPPORT">SUPPORT</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="../../SUPPORT/notice.html" title="Notice">Notice</a></li><!--
+									 --><li><a href="../../SUPPORT/press.html" title="Press">Press</a></li><!--
+									 --><li><a href="../../SUPPORT/reviews.html" title="Reviews">Reviews</a></li><!--
+									 --><li><a href="#" title="FAQ">FAQ</a></li><!--
+									 --><li><a href="../../SUPPORT/inquiry.html" title="1:1 Inquiry">1:1 Inquiry</a></li><!--
+									 --><li><a href="../../SUPPORT/contact.html" title="Contact Us">Contact Us</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="#" title="ABOUT">ABOUT</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="#" title="Introduction">Introduction</a></li><!--
+									 --><li><a href="#" title="Greeting">Greeting</a></li><!--
+									 --><li><a href="#" title="Advantage">Advantage</a></li><!--
+									 --><li><a href="#" title="Location">Location</a></li><!--
+									 --><li><a href="#" title="Recruit">Recruit</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<h2>컨텐츠 영역</h2>
+			<div id="ct_head">
+				<img src="../../img/bg_hotel_specialoffers_s.jpg" alt="specialoffersImage"/>
+			</div>
+			<div id="ct_navWrap">
+				<div id="nav">
+					<ul id="subNav1">
+						<li><a href="#" title="HOME">HOME</a><span>&gt;</span></li>
+						<li><a href="#" title="HOTEL"><strong>HOTEL</strong></a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="ct_content">
+				<h3><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/event/Hotel.html" title="SPECIAL_OFFERS">SPECIAL OFFERS</a></h3>
+				<p id="summary">머큐어 서울 앰배서더 강남 쏘도베에서만 만날 수 있는 스페셜오퍼, 다양한 패키지와 프로모션을 소개합니다.</p>
+				<div id="specialWrap">
+					<div id="L">
+						<p>
+							<strong>Package</strong>
+						</p>
+						<p class="more">
+							<a href="#" title="">more</a>
+						</p>
+						<ul>
+							<li>
+								<div class="image">
+									<img src="../../img/봄패키지홈페이지배너.jpg" alt="홈페이지배너"/>
+								</div>
+								<div class="box">
+									<a href="#" title="LL">
+										<strong>[객실] 봄 패키지 - Strawberry Day PKG</strong><br/>
+										<span class="boxText">2016.03.01 ~ 2016.05.31</span>
+									</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div id="R">
+						<p>
+							<strong>PROMOTION</strong>
+						</p>
+						<p class="more">
+							<a href="#" title="">more</a>
+						</p>
+						<ul>
+							<li>
+								<div class="image">
+									<img src="../../img/멤버가입이벤트.jpg" alt="멤버가입이벤트"/>
+								</div>
+								<div class="box">
+									<a href="#" title="RR">
+										<strong>[당첨자 발표] 머큐어호텔 멤버 가입 이벤트 당첨자 발표</strong><br/>
+										<span class="boxText">2016.02.18 ~ 2016.02.26</span>
+									</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div id="footerWrap">
+				<h2>풋터 영역</h2>
+				<div id="ftcopy">
+					<div id="footerLink">
+						<p>
+							<a href="#" title="개인정보취급방침"><strong>개인정보취급방침</strong></a><span>|</span>
+							<a href="#" title="이용약관">이용약관</a>
+						</p>
+					</div>
+					<div id="address">
+						<address>
+							상호 : (주)희앤썬 / 대표자명 : 우희명 서울시 강남구 역삼동 테헤란로 25길 10 (서울시 강남구 역삼동 642번지)<br/>
+							TEL : 02-2050-6000 / 사업자등록번호 : 211-81-61213 / 통신판매업신고번호 : 2013-서울강남-00319
+						</address>
+					</div>
+					<div id="copy">
+						<p>
+							Copyright 2016 Mercure Seoul Ambassador Gangnam Sodowe All Rights Reserved
+						</p>
+					</div>
+				</div>
+				<div id="ftSelect">
+					<div id="trip">
+						<a href="#" title="예약하기"><img src="../../img/btn_gnb_trip.gif" alt="호텔예약"/></a>
+					</div>
+					<div id="language">
+						<select id="rankSelect">
+							<option value="Select Language">Select Language</option>
+							<option value="English">English</option>
+							<option value="Chinese">Chinese</option>
+							<option value="Japanese">Japanese</option>
+							<option value="Korean">Korean</option>
+						</select>
+					</div>
+					<div id="sns">
+						<ul>
+							<li class="sns_F">
+								<a href="#" title="facebook1">facebook 바로가기</a>
+							</li>
+							<li class="sns_Fg">
+								<a href="#" title="facebook2">facebook 바로가기</a>
+							</li>
+							<li class="sns_T">
+								<a href="#" title="Instargram">Instargram 바로가기</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

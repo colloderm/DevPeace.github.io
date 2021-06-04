@@ -1,0 +1,934 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title> EVENT </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+  <script type="text/javascript" src="../../js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="../../js/header.js"></script>
+  <script>
+	$(function(){
+			$("#tab li:not(:first)").hide();			
+			$("#ch_Nav li a").bind("click focusin",function(){
+				$("#tab li").hide();
+				$($(this).attr("href")).show();
+				$("#ch_Nav li").removeClass("first");
+				$(this).parent().addClass("first");
+			});
+			$("#ch_Nav li").mouseover(function(){
+				$(this).clearQueue().css({"backgroundColor":"#333"});
+				$(this).clearQueue().css({"color":"#fff"});
+			}).mouseout(function(){
+				$(this).clearQueue().css({"backgroundColor":"#fff"});
+				$(this).clearQueue().css({"color":"#333"});
+			});
+
+			$("#film").prepend($(".scene:last"));
+			$("#film").css({"marginLeft":"-1280px"});
+			$(".button1").click(function(){
+				$("#film").animate({"marginLeft":"-=1280px"},1000,"swing",function(){
+					$("#film").append($(".scene:first"));
+					$("#film").css({"marginLeft":"-1280px"});
+				});
+			});
+			$(".button2").click(function(){
+				$("#film").animate({"marginLeft":"+=1280px"},1000,"swing",function(){
+					$("#film").prepend($(".scene:last"));
+					$("#film").css({"marginLeft":"-1280px"});
+				});
+			});
+		});
+  </script>
+  <style type="text/css">
+
+		#wrap{width:100%; height:100%;}
+
+		/* header */
+		#headerWrap{width:100%; height:60px; background-color:rgba(0, 0, 0, 0.4); position:absolute; left:0; top:0; z-index:1;}
+		#header {width:960px; height:100px; position:relative; margin:0 auto; overflow:hidden;}
+
+		#head div{float:left;}
+
+		/* headLogo */
+		#headLogo{width:200px; height:60px;}
+		#headLogo h1{
+								width:150px; height:60px;
+								background-image:url("../../img/logo_mercure.png"); 
+								background-repeat:no-repeat; 
+								background-size:70% 100%;
+								background-position:right;
+							}
+		#headLogo h1 a{width:100%; height:100%; display:block;  text-indent:-9999px;}
+
+		/* head gnb */
+		#head #gnb{width:760px; height:100px; margin-left:200px;}
+		#head #gnb li a{color:#bababa; font-weight:700;}
+		#head #gnb li.gnb_t{width:187.5px; height:60px; line-height:60px; text-align:center; float:left;}
+
+		#head #gnb li div.subline{width:100%; position:fixed; left:0; top:60px; background-color:rgba(0, 0, 0, 0.2);}
+		#head #gnb li ul.gnb_st{font-size:13px;  height:40px; line-height:40px;  text-align:center; width:960px; margin:0 auto; }
+		#head #gnb li ul.gnb_st li{text-align:center; display:inline-block;}
+		#head #gnb li ul.gnb_st li a{padding:0 20px;}
+
+		/*content */
+		#content{width:100%;}
+		#ct_head{width:100%; background-color:#ddd;}
+		#screen{width:1280px; height:520px; margin:0 auto; position:relative; overflow:hidden;}
+		#film{width:3840px;}
+		.scene{float:left;}
+
+		ul#film:after{content:""; display:block; clear:both;}
+		#ct_head ul li img{width:100%; height:100%;}
+
+		#btn p{position:absolute; left:0; bottom:0; width:50px; height:100px;}
+		#btn p img{width:100%; height:100%; cursor:pointer;}
+		#btn p.button1{left:96.1%;}
+		
+		/* navWrap */
+		#ct_navWrap{width:100%; height:30px; padding-top:20px;}
+		#ct_navWrap #nav{width:960px; margin:0 auto;}
+
+		/* subNav1 */
+		#nav #subNav1{width:100%; line-height:40px; text-align:left;}
+		#nav #subNav1 li{display:inline; font-size:13px;}
+		#nav #subNav1 li a{padding:0 5px; color:#000;}
+		#nav #subNav1 li span{padding:0 5px;}
+
+		/* ct_content */
+		#ct_content{width:960px; margin:0 auto;}
+		#ct_content h3{width:100%; font-size:50px; padding:10px 0 5px; border-bottom:1px solid #aaa;}
+		#ct_content #summary{width:100%; font-size:12px; color:#777; padding:10px 0 20px;}
+
+		/*contHeader */
+		#contHeader{width:100%; height:200px; padding:10px 0;}
+		#contHeader #ch_title{width:100%; height:140px; padding-top:15px;}
+		#contHeader #ch_title strong{display:block; font-size:18px; padding-bottom:10px; line-height:25px;}
+		#contHeader #ch_title p{font-size:14px; line-height:22px;}
+
+		/* ch_Nav */
+		#contHeader #ch_Nav{width:100%; overflow:hidden; padding:10px 0 30px; text-transform:uppercase;}
+		#contHeader #ch_Nav li{width:25%; float:left; border:1px solid #ccc; text-align:center; font-size:14px; box-sizing:border-box;}
+		#contHeader #ch_Nav li a{display:block; padding:10px 0;}
+		#contHeader #ch_Nav li.first a{background-color:#333; color:#fff;}
+
+		/* ct_Text */
+		#ct_Text{width:100%; padding-bottom:50px;}
+		#ct_Text h4{color:#894692; font-size:18px; padding:40px 0 10px;}
+		#ct_Text p {font-size:14px; padding:2px 0;}
+		#ct_Text strong{font-size:14px;}
+
+		/* event_imglist */
+		#ct_Text .event_imglist{width:100%; overflow:hidden;}
+		#ct_Text .event_imglist div{float:left; width:470px; text-align:center; padding:5px 0 15px 7px;}
+		#ct_Text .event_imglist strong{display:block; padding:10px 0 10px 7px;}
+		#ct_Text .event_imglist div img{width:100%;}
+		#ct_Text .event_imglist p{line-height:20px;}
+
+		/* party */
+		#party{width:100%; height:870px;}
+		#party h4{font-size:18px; color:#894692; font-weight:700; margin:40px 0 15px;}
+		#party .partylist{width:100%; height:460px; overflow:hidden; font-size:14px; margin-top:10px;}
+		.partylist .p1{width:230px; float:left; padding:0 5px;}
+		.p1 table{border-left:1px solid #ddd; border-right:1px solid #ddd; text-align:center; border-top:1px solid #ddd;}
+		.p1 table caption{display:none;}
+		.p1 table tr{height:38px;}
+		.p1 table thead th{border-bottom:1px solid #ddd; background-color:#f9f9f9;}
+		.p1 table tbody th{font-weight:400; border-bottom:1px solid #ddd; background-color:#f9f9f9; }
+		.p1 table tbody td{font-size:13px; border-bottom:1px solid #ddd;}
+		.p1 table tbody td.tit{padding:0 5px; text-align:left; border-right:1px solid #ddd;}
+
+		#partySet{width:100%; overflow:hidden; margin-bottom:50px;}
+		#partySet h4{font-size:18px; color:#894692; font-weight:700; margin:40px 0 15px;}
+		#partySet ul{width:100%;}
+		#partySet li{width:230px; margin:5px 0 15px; float:left; text-align:center; padding:0 5px;}
+		#partySet li .pImage{border:1px solid #ddd;}
+		#partySet li .pImage img{width:100%;}
+		#partySet li p{padding-top:15px; font-size:14px;}
+
+		/* party2 */
+		#party2{width:100%;}
+		#party2 h4, #partySet2 h4{font-size:18px; color:#894692; font-weight:700; margin:40px 0 15px; float:left;}
+		#party2 p, #partySet2 p{font-size:13px; text-align:right; padding:50px 0 0px;}
+		#party2 .partylist{clear:both; width:100%; height:300px; font-size:14px; margin-top:10px;}
+		.partylist2 .p2{width:100%;}
+		.p2 table{width:100%; border-left:1px solid #ddd; text-align:center; border-top:1px solid #ddd;}
+		.p2 table caption{display:none;}
+		.p2 table tr{height:38px;}
+		.p2 table thead th{border-bottom:1px solid #ddd; padding:0 5px; font-size:13px; border-right:1px solid #ddd; background-color:#f9f9f9;}
+		.p2 table tbody th{font-size:13px; border-bottom:1px solid #ddd; border-right:1px solid #ddd; background-color:#f9f9f9;}
+		.p2 table tbody td{font-size:13px; border-bottom:1px solid #ddd; border-right:1px solid #ddd;}
+		.p2 table tbody td.tit{padding:0 5px; text-align:left; border-right:1px solid #ddd;}
+
+		#partySet2{width:100%; float:left;}
+		#partySet2 .partylist2{clear:both; width:100%; height:250px; font-size:14px; margin-top:10px;}
+		#partySet2 li{width:230px; margin:5px 0 15px; text-align:center; padding:0 5px;}
+		#partySet2 li p{padding-top:15px; font-size:14px;}
+
+		/* party3 */
+		#party3{width:100%;}
+		#party3 h4{font-size:18px; color:#894692; font-weight:700; margin:40px 0 15px;}
+		#party3 p.cap, #partySet3 p.cap{font-size:14px; float:left; font-weight:bold;}
+		#party3 p.cap2, #partySet3 p.cap2{font-size:13px; text-align:right;}
+		#party3 .partylist3{width:100%; height:300px; font-size:14px; margin-top:10px;}
+		.partylist3 .p3{width:100%;}
+		.p3 table{width:100%; border-left:1px solid #ddd; text-align:center; border-top:1px solid #ddd;}
+		.p3 table caption{display:none;}
+		.p3 table tr{height:38px;}
+		.p3 table thead th{border-bottom:1px solid #ddd; padding:0 5px; font-size:13px; border-right:1px solid #ddd; background-color:#f9f9f9;}
+		.p3 table tbody th{font-size:13px; border-bottom:1px solid #ddd; border-right:1px solid #ddd; background-color:#f9f9f9;}
+		.p3 table tbody td{font-size:13px; border-bottom:1px solid #ddd; border-right:1px solid #ddd;}
+		.p3 table tbody td.tit{padding:0 5px; text-align:left; border-right:1px solid #ddd;}
+
+		#partySet3{width:100%; float:left;}
+		#partySet3 .partylist3{width:100%; height:210px; font-size:14px; margin-top:10px;}
+		#partySet3 p{margin-top:20px;}
+		#partySet3 li{width:230px; margin:5px 0 15px; text-align:center; padding:0 5px;}
+		#partySet3 li .pImage{border:1px solid #ddd;}
+		#partySet3 li p{padding-top:15px; font-size:14px;}
+
+		#partyBtm .pb1,#kloudP p.pb1{font-size:12px; line-height:18px; color:#777;}
+		#partyBtm h4{padding:20px 0 10px;}
+		#partyBtm p{font-size:14px; line-height:22px;}
+		#partyBtm a{display:inline-block; padding: 0 10px; margin-left:10px; border:1px solid #ddd; font-size:12px; border-radius:3px; font-weight:700; background-color:#eee;}
+
+		#kloudP{height:300px;}
+		#kloudP h3{font-size:18px; color:#894692; font-weight:700; margin:40px 0 15px; border:none;}
+		#kloudP h4{font-size:14px; font-weight:700; color:#222; margin:20px 0 10px;}
+		#kloudP p{font-size:14px; line-height:22px;}
+		#kloudP p.pb1{margin-top:3px;}
+
+		/* footer */
+		#footer{clear:both; width:100%; height:120px; background-color:rgba(0, 0, 0, 0.8); font-size:11px; position:relative; bottom:0;}
+		#footerWrap{width:960px; height:120px; margin:0 auto;}
+		#footerWrap #ftcopy, #footerWrap #ftSelect, #footerWrap #sns{float:left;}
+
+		#ftcopy{width:660px; height:120px; padding-top:10px;}
+		#footer #footerLink p a{font-size:12px; color:#999;}
+		#footer #footerLink p span{color:#fff; font-size:9px; padding:0 10px 0 15px;}
+		#footer #address address{font-style:normal; color:#777; padding:15px 0;}
+		#footer #copy p{color:#777;}
+		
+		/* ftSelect */
+		#ftSelect{width:300px; height:110px; padding-top:10px;}
+		#ftSelect div{float:left;}
+		#ftSelect #trip{width:150px; height:50px;}
+		#ftSelect #language{width:150px; height:50px; line-height:50px;}
+		#ftSelect #language #rankSelect{padding:5px 10px; margin-top:5px;}
+
+		/* sns */
+		#sns{clear:both; width:100%; height:50px;}
+		#sns li{display:inline-block; margin-right:10px;}
+		#sns li.sns_F{width:50px; background-image:url("../../img/btn_gnb_facebook.gif"); background-repeat:no-repeat;}
+		#sns li.sns_Fg{width:50px; background-image:url("../../img/btn_gnb_facebook_g.gif"); background-repeat:no-repeat;}
+		#sns li.sns_T{width:50px; background-image:url("../../img/btn_gnb_instartgram.gif"); background-repeat:no-repeat;}
+		#sns li a{width:50px; height:50px; display:block; text-indent:-9999px;}
+
+		@media screen and (min-width:1024px){
+			#head #gnb li.point{display:none;}
+			#content h3 span{display:none;}
+		}
+
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="headerWrap">
+			<div id="header">
+				<div id="head">
+					<div id="headLogo">
+						<h1><a href="../../index.html" title="머큐어호텔">머큐어호텔</a></h1>
+					</div>
+					<ul id="gnb">
+						<li class="point"><img src="img/btn_m_gnb.png" alt="s_menu"/></li>
+						<li class="gnb_t"><a href="../room/ROOMS.html" title="HOTEL">HOTEL</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="../room/ROOMS.html" title="ROOM">ROOM</a></li><!--
+									 --><li><a href="../eat/EATnDRINK.html" title="EatnDrink">Eat &amp; Drink</a></li><!--
+									 --><li><a href="../facilities/FACILITIES.html" title="Facilities">Facilities</a></li><!--
+									 --><li><a href="../event/EVENT.html" title="Event">Event</a></li><!--
+									 --><li><a href="../special_offfers/Special_offers.html" title="Special offers">Special offers</a></li><!--
+									 --><li><a href="../membership/MEMBERSHIP.html" title="Membership">Membership</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="#" title="MAGAZINE">MAGAZINE</a></li>
+						<li class="gnb_t"><a href="../../SUPPORT/notice.html" title="SUPPORT">SUPPORT</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="../../SUPPORT/notice.html" title="Notice">Notice</a></li><!--
+									 --><li><a href="../../SUPPORT/press.html" title="Press">Press</a></li><!--
+									 --><li><a href="../../SUPPORT/reviews.html" title="Reviews">Reviews</a></li><!--
+									 --><li><a href="#" title="FAQ">FAQ</a></li><!--
+									 --><li><a href="../../SUPPORT/inquiry.html" title="1:1 Inquiry">1:1 Inquiry</a></li><!--
+									 --><li><a href="../../SUPPORT/contact.html" title="Contact Us">Contact Us</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="#" title="ABOUT">ABOUT</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="#" title="Introduction">Introduction</a></li><!--
+									 --><li><a href="#" title="Greeting">Greeting</a></li><!--
+									 --><li><a href="#" title="Advantage">Advantage</a></li><!--
+									 --><li><a href="#" title="Location">Location</a></li><!--
+									 --><li><a href="#" title="Recruit">Recruit</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<h2>컨텐츠 영역</h2>
+			<div id="ct_head">
+				<div id="screen">
+					<ul id="film">
+						<li class="scene"><img src="../../img/Event-1-960.jpg" alt="event0" class="film0"/></li>
+						<li class="scene"><img src="../../img/Lounge-7-960.jpg" alt="event1" class="film1"/></li>
+						<li class="scene"><img src="../../img/Event-3-960.jpg" alt="event2" class="film2"/></li>
+					</ul>
+					<div id="btn">
+						<p class="button1"><img src="../../img/btn_images_gallery_r.gif" alt="nextBtn" class="next"/></p>
+						<p class="button2"><img src="../../img/btn_images_gallery_l.gif" alt="prevBtn" class="prev"/></p>
+					</div>
+				</div>
+			</div>
+			<div id="ct_navWrap">
+				<div id="nav">
+					<ul id="subNav1">
+						<li>HOME<span>&gt;</span></li>
+						<li><a href="#" title="HOTEL"><strong>HOTEL</strong></a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="ct_content">
+				<h3><a href="http://colloderm.dothome.co.kr/portpolio/MercureHotel/event/Hotel.html" title="EVENT">EVENT</a></h3>
+				<p id="summary">아름다운 순간, 성공적인 비즈니스, 소중한 가족, 머큐어 연회장이 함께합니다.</p>
+				<div id="contHeader">
+					<div id="ch_title">
+						<strong>함께하는 시간을 빛 내 줄 Mercure 연회장</strong>
+						<p>사랑하는 내 아이의 돌 잔치</p>
+						<p>아름다운 순간, 프로포즈와 웨딩</p>
+						<p>성공적인 비즈니스 미팅</p>
+						<p>소중한 가족, 지인들과의 만남 등 어떠한 이벤트도 가능한 머큐어의 연회장을 경험해보세요.</p>
+					</div>
+					<div>
+						<ul id="ch_Nav">
+							<li class="first"><a href="#banquet" title="Banquethall">Banquet hall</a></li>
+							<li><a href="#facilities" title="Facilities">Facilities</a></li>
+							<li><a href="#charges" title="Charges">Charges</a></li>
+							<li><a href="#package" title="Package">Package</a></li>
+						</ul>
+					</div>
+				</div>
+				<ul id="tab">
+					<li id="banquet">
+						<div id="ct_Text">
+							<h4>연회장 시설</h4>
+							<div class="event_imglist">
+								<strong>SODOWE Restaurant (2F)</strong>
+								<div>
+									<img src="../../img/event_banquethall_MERCURY.jpg" alt="MERCURY"/>
+									<p>MERCURY</p>
+								</div>
+								<div>
+									<img src="../../img/event_banquethall_VENUS1.jpg" alt="VENUS1"/>
+									<p>VENUS 1</p>
+								</div>								
+								<div>
+									<img src="../../img/event_banquethall_VENUS2.jpg" alt="VENUS2"/>
+									<p>VENUS2</p>
+								</div>								
+								<div>
+									<img src="../../img/event_banquethall_VENUS1_2.jpg" alt="VENUS 1+2"/>
+									<p>VENUS 1+2</p>
+								</div>
+							</div>
+							<div class="event_imglist">
+								<strong>Lounge (로비)</strong>
+								<div>
+									<img src="../../img/event_banquethall_Octagon.jpg" alt="Octagon"/>
+									<p>Octagon</p>
+								</div>	
+							</div>
+							<div class="event_imglist">
+								<strong>Rooftop Bar(21층)</strong>
+								<div>
+									<img src="../../img/event_banquethall_KLOUD.jpg" alt="KLOUD"/>
+									<p>KLOUD</p>
+								</div>
+							</div>
+							<h4>행사 유형 예시</h4>
+							<p>
+								- Business : 워크샵 / 세미나 / 강연 / 이사회 / 간담회 / 기자회견 등
+							</p>
+							<p>
+								- Family : 돌잔치 / 백일 / 가족연 / 소규모 웨딩 등
+							</p>
+						</div>
+					</li>
+					<li id="facilities">
+						<div id="party">
+							<h4>시설규모 및 수용인원</h4>
+							<div class="partylist">
+								<div class="p1">
+									<table summary="MERCURY 정보">
+										<caption>MERCURY 정보</caption>
+										<colgroup>
+											<col width="60%"/>
+											<col width="40%"/>
+										</colgroup>
+										<thead>
+											<tr><th colspan="2">MERCURY</th></tr>
+										</thead>
+										<tbody>
+											<tr><th colspan="2">시설규모 및 크기</th></tr>
+											<tr>
+												<td class="tit">면적(m2)</td>
+												<td>70.59</td>
+											</tr>
+											<tr>
+												<td class="tit">가로 x 세로 x 높이(m)</td>
+												<td>6.5 x 9.0 x 2.8</td>
+											</tr>
+											<tr><th colspan="2">유형별 최대 수용 가능 인원(명)</th></tr>
+											<tr>
+												<td class="tit">Dining</td>
+												<td>36</td>
+											</tr>
+											<tr>
+												<td class="tit">Class Room</td>
+												<td>30</td>
+											</tr>
+											<tr>
+												<td class="tit">Theater</td>
+												<td>50</td>
+											</tr>
+											<tr>
+												<td class="tit">I-Shape	</td>
+												<td>20</td>
+											</tr>
+											<tr>
+												<td class="tit">U-Shape</td>
+												<td>20</td>
+											</tr>
+											<tr>
+												<td class="tit">Round</td>
+												<td>24</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="p1">
+									<table summary="VENUS 1 정보">
+										<caption>VENUS 1 정보</caption>
+										<colgroup>
+											<col width="60%"/>
+											<col width="40%"/>
+										</colgroup>
+										<thead>
+											<tr><th colspan="2">VENUS 1</th></tr>
+										</thead>
+										<tbody>
+											<tr><th colspan="2">시설규모 및 크기</th></tr>
+											<tr>
+												<td class="tit">면적(m2)</td>
+												<td>52.01</td>
+											</tr>
+											<tr>
+												<td class="tit">가로 x 세로 x 높이(m)</td>
+												<td>7.0 x 6.9 x 2.8</td>
+											</tr>
+											<tr><th colspan="2">유형별 최대 수용 가능 인원(명)</th></tr>
+											<tr>
+												<td class="tit">Dining</td>
+												<td>24</td>
+											</tr>
+											<tr>
+												<td class="tit">Class Room</td>
+												<td>18</td>
+											</tr>
+											<tr>
+												<td class="tit">Theater</td>
+												<td>30</td>
+											</tr>
+											<tr>
+												<td class="tit">I-Shape	</td>
+												<td>12</td>
+											</tr>
+											<tr>
+												<td class="tit">U-Shape</td>
+												<td>12</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="p1">
+									<table summary="VENUS 2 정보">
+										<caption>VENUS 2 정보</caption>
+										<colgroup>
+											<col width="60%"/>
+											<col width="40%"/>
+										</colgroup>
+										<thead>
+											<tr><th colspan="2">VENUS 2</th></tr>
+										</thead>
+										<tbody>
+											<tr><th colspan="2">시설규모 및 크기</th></tr>
+											<tr>
+												<td class="tit">면적(m2)</td>
+												<td>27.68</td>
+											</tr>
+											<tr>
+												<td class="tit">가로 x 세로 x 높이(m)</td>
+												<td>7.0 x 3.7 x 2.8</td>
+											</tr>
+											<tr><th colspan="2">유형별 최대 수용 가능 인원(명)</th></tr>
+											<tr>
+												<td class="tit">Dining</td>
+												<td>8</td>
+											</tr>
+											<tr>
+												<td class="tit">I-Shape	</td>
+												<td>12</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="p1">
+									<table summary="VENUS 1+2 정보">
+										<caption>VENUS 1+2 정보</caption>
+										<colgroup>
+											<col width="60%"/>
+											<col width="40%"/>
+										</colgroup>
+										<thead>
+											<tr><th colspan="2">VENUS 1+2</th></tr>
+										</thead>
+										<tbody>
+											<tr><th colspan="2">시설규모 및 크기</th></tr>
+											<tr>
+												<td class="tit">면적(m2)</td>
+												<td>79.69</td>
+											</tr>
+											<tr>
+												<td class="tit">가로 x 세로 x 높이(m)</td>
+												<td>7.0 x 10.6 x 2.8</td>
+											</tr>
+											<tr><th colspan="2">유형별 최대 수용 가능 인원(명)</th></tr>
+											<tr>
+												<td class="tit">Dining</td>
+												<td>48</td>
+											</tr>
+											<tr>
+												<td class="tit">Class Room</td>
+												<td>36</td>
+											</tr>
+											<tr>
+												<td class="tit">Theater</td>
+												<td>60</td>
+											</tr>
+											<tr>
+												<td class="tit">I-Shape	</td>
+												<td>24</td>
+											</tr>
+											<tr>
+												<td class="tit">U-Shape</td>
+												<td>24</td>
+											</tr>
+											<tr>
+												<td class="tit">Round</td>
+												<td>30</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="partylist">
+								<div class="p1">
+									<table summary="KLOUD 정보">
+										<caption>KLOUD 정보</caption>
+										<colgroup>
+											<col width="60%"/>
+											<col width="40%"/>
+										</colgroup>
+										<thead>
+											<tr><th colspan="2">KLOUD</th></tr>
+										</thead>
+										<tbody>
+											<tr><th colspan="2">유형별 최대 수용 가능 인원(명)</th></tr>
+											<tr>
+												<td class="tit">필드</td>
+												<td>60</td>
+											</tr>
+											<tr>
+												<td class="tit">우드</td>
+												<td>35</td>
+											</tr>
+											<tr>
+												<td class="tit">테라스</td>
+												<td>20</td>
+											</tr>
+											<tr>
+												<td class="tit">바 카운터	</td>
+												<td>25</td>
+											</tr>
+											<tr>
+												<td class="tit">하절기 전체</td>
+												<td>130</td>
+											</tr>
+											<tr>
+												<td class="tit">동절기 전체</td>
+												<td>90</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="p1">
+									<table summary="Octagon 정보">
+										<caption>Octagon 정보</caption>
+										<colgroup>
+											<col width="60%"/>
+											<col width="40%"/>
+										</colgroup>
+										<thead>
+											<tr><th>Octagon</th></tr>
+										</thead>
+										<tbody>
+											<tr><th>유형별 최대 수용 가능 인원(명)</th></tr>
+											<tr>
+												<td>6</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div id="partySet">
+							<h4>연회장 테이블 세팅 유형</h4>
+							<div class="pImagelist">
+								<ul>
+									<li>
+										<div class="pImage">
+											<img src="../../img/img_table_setting01.png" alt="Dining"/>
+										</div>
+										<p>Dining</p>
+									</li>
+									<li>
+										<div class="pImage">
+											<img src="../../img/img_table_setting02.png" alt="ClassRoom"/>
+										</div>
+										<p>Class Room</p>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<div class="pImage">
+											<img src="../../img/img_table_setting03.png" alt="Theater"/>
+										</div>
+										<p>Theater</p>
+									</li>
+									<li>
+										<div class="pImage">
+											<img src="../../img/img_table_setting04.png" alt="I-Shape"/>
+										</div>
+										<p>I-Shape</p>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<div class="pImage">
+											<img src="../../img/img_table_setting05.png" alt="U-Shape"/>
+										</div>
+										<p>U-Shape</p>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<div class="pImage">
+											<img src="../../img/img_table_setting06.png" alt="Round"/>
+										</div>
+										<p>Round</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li id="charges">
+						<div id="party2">
+							<h4>시설 이용요금</h4>
+							<p class="cap">* 부가세 포함</p>
+							<div class="partylist2">
+								<div class="p2">
+									<table summary="시설 이용요금 정보">
+										<caption>시설 이용요금 정보</caption>
+										<colgroup>
+											<col width="25%"/>
+											<col width="25%"/>
+											<col width="25%"/>
+											<col width="25%"/>
+										</colgroup>
+										<thead>
+											<tr>
+												<th>연회장 / 시간</th>
+												<th>오전 (09:00 ~ 12:00)</th>
+												<th>오후 (12:00 ~ 18:00)</th>
+												<th>전일 (09:00 ~ 18:00)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th>MERCURY<br/>(2F)</th>
+												<td>440,000원</td>
+												<td>880,000원</td>
+												<td>1,210,000원</td>
+											</tr>
+											<tr>
+												<th>VENUS 1<br/>(2F)</th>
+												<td>385,000원</td>
+												<td>770,000원</td>
+												<td>1,100,000원</td>
+											</tr>
+											<tr>
+												<th>VENUS 2<br/>(2F)</th>
+												<td>330,000원</td>
+												<td>660,000원</td>
+												<td>880,000원</td>
+											</tr>
+											<tr>
+												<th>VENUS 1+2<br/>(2F)</th>
+												<td>495.000원</td>
+												<td>990,000원</td>
+												<td>1,430,000원</td>
+											</tr>
+											<tr>
+												<th>Octagon<br/>(Lobby Level)</th>
+												<td colspan="3">시간 당 66,000원 / 전일 275,000원</td>
+											</tr>
+											<tr>
+												<th>KLOUD<br/>(21th Floor)</th>
+												<td colspan="3">* 별도 문의</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div id="partySet2">
+							<h4>품목별 이용 및 제작요금</h4>
+							<p class="cap">* 부가세 포함</p>
+							<div class="partylist2">
+								<div class="p2">
+									<table summary="품목별 이용 및 제작요금 정보">
+										<caption>품목별 이용 및 제작요금 정보</caption>
+										<colgroup>
+											<col width="50%"/>
+											<col width="50%"/>
+										</colgroup>
+										<thead>
+											<tr>
+												<th>품목</th>
+												<th>이용 및 제작요금</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th>LCD Projector</th>
+												<td>110,000원 / 1일 1회 한함</td>
+											</tr>
+											<tr>
+												<th>Internet (무선)</th>
+												<td>무료</td>
+											</tr>
+											<tr>
+												<th>Flip chart</th>
+												<td>55,000원 / 1개</td>
+											</tr>
+											<tr>
+												<th>현수막 제작</th>
+												<td>110,000원 / 1개</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li id="package">
+						<div id="party3">
+							<h4>돌잔치 및 가족연 패키지 (MERCURY / VENUS 1 / VENUS 2)</h4>
+							<p class="cap">식사 및 음료 가격</p>
+							<p class="cap2">* 부가세 포함</p>
+							<div class="partylist3">
+								<div class="p3">
+									<table summary="식사 및 음료 가격 정보">
+										<caption>식사 및 음료 가격 정보</caption>
+										<colgroup>
+											<col width="15%"/>
+											<col width="15%"/>
+											<col width="35%"/>
+											<col width="35%"/>
+										</colgroup>
+										<thead>
+											<tr>
+												<th colspan="2">구분</th>
+												<th>REMARK</th>
+												<th>가격</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">식사</th>
+												<th>뷔페</th>
+												<td>점심</td>
+												<td>33,000원</td>
+											</tr>
+											<tr>
+												<th>뷔페 + 스테이크</th>
+												<td>점심 / 저녁</td>
+												<td>42,350원</td>
+											</tr>
+											<tr>
+												<th rowspan="3">음료</th>
+												<th>맥주</th>
+												<td>HITE / CASS</td>
+												<td>8,800원</td>
+											</tr>
+											<tr>
+												<th>와인</th>
+												<td>하우스 와인</td>
+												<td>49,500원</td>
+											</tr>
+											<tr>
+												<th>소프트 드링크</th>
+												<td>콜라 / 사이다 / 제로콜라</td>
+												<td>6,050원</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div id="partySet3">
+							<p class="cap">연회장 요금 및 음료 패키지</p>
+							<p class="cap2">* 부가세 포함</p>
+							<div class="partylist3">
+								<div class="p3">
+									<table summary="연회장 요금 및 음료 패키지 정보">
+										<caption>연회장 요금 및 음료 패키지 정보</caption>
+										<colgroup>
+											<col width="30%"/>
+											<col width="70%"/>
+										</colgroup>
+										<thead>
+											<tr>
+												<th>구분</th>
+												<th>요금 및 혜택</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th>연회장 이용요금</th>
+												<td>220,000원</td>
+											</tr>
+											<tr>
+												<th rowspan="3">음료 패키지<br/>1인 기준 (7,700원)</th>
+												<td>20명 이상 (음료수 20캔, 맥주 10병, 와인 1병 제공)</td>
+											</tr>
+											<tr>
+												<td>30명 이상 (음료수 30캔, 맥주 15병, 와인 2병 제공)</td>
+											</tr>
+											<tr>
+												<td>40명 이상 (음료수 40캔, 맥주 20병, 와인 3병 제공)</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div id="partyBtm">
+							<p class="pb1">* 연회장 이용은 성인 기준 최소 지불 보증 인원 20명 이상 시 사용 가능합니다.</p>
+							<p class="pb1">* 외부 돌상 업체 이용 시 호텔 측에 문의 바랍니다.</p>
+							<h4>돌잔치 및 가족연 패키지 공통 혜택</h4>
+							<p>- LCD 프로젝터 + 스크린 제공</p>
+							<p>- 30명 이상 진행 시 드레스 룸 제공 (* 행사 시작 1시간 전부터 총 3시간 이용 가능)</p>
+							<h4>연회장 예약 문의</h4>
+							<p>- 유선전화 예약상담 문의 02-2050-6034</p>
+							<p>
+								- 이메일 예약상담 문의
+								<a href="#" title="문의하기">
+									1:1 문의하기 &gt;
+								</a>
+							</p>
+						</div>
+						<div id="kloudP">
+							<h3>KLOUD 패키지</h3>
+							<h4>이용시간</h4>
+							<p>- 기본 이용 시간 (3시간 이용 기준) 18:00~21:00</p>
+							<p class="pb1">* 요일 및 섹션에 따른 금액이 변동될 수 있습니다.</p>
+							<p class="pb1">* 추가 시간 이용 시 추가 금액이 있으나 3시간 이용을 기본으로 합니다.</p>
+							<h4>뷔페 이용 요금</h4>
+							<p>- 77,000원 (생맥주, 소프트 드링크 무제한)</p>
+							<p>- 99,000원 (생맥주, 소프트 드링크 + 크래프트 맥주 1캔 추가)</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="footer">
+			<div id="footerWrap">
+				<h2>풋터 영역</h2>
+				<div id="ftcopy">
+					<div id="footerLink">
+						<p>
+							<a href="#" title="개인정보취급방침"><strong>개인정보취급방침</strong></a><span>|</span>
+							<a href="#" title="이용약관">이용약관</a>
+						</p>
+					</div>
+					<div id="address">
+						<address>
+							상호 : (주)희앤썬 / 대표자명 : 우희명 서울시 강남구 역삼동 테헤란로 25길 10 (서울시 강남구 역삼동 642번지)<br/>
+							TEL : 02-2050-6000 / 사업자등록번호 : 211-81-61213 / 통신판매업신고번호 : 2013-서울강남-00319
+						</address>
+					</div>
+					<div id="copy">
+						<p>
+							Copyright 2016 Mercure Seoul Ambassador Gangnam Sodowe All Rights Reserved
+						</p>
+					</div>
+				</div>
+				<div id="ftSelect">
+					<div id="trip">
+						<a href="#" title="예약하기"><img src="../../img/btn_gnb_trip.gif" alt="호텔예약"/></a>
+					</div>
+					<div id="language">
+						<select id="rankSelect">
+							<option value="Select Language">Select Language</option>
+							<option value="English">English</option>
+							<option value="Chinese">Chinese</option>
+							<option value="Japanese">Japanese</option>
+							<option value="Korean">Korean</option>
+						</select>
+					</div>
+					<div id="sns">
+						<ul>
+							<li class="sns_F">
+								<a href="#" title="facebook1">facebook 바로가기</a>
+							</li>
+							<li class="sns_Fg">
+								<a href="#" title="facebook2">facebook 바로가기</a>
+							</li>
+							<li class="sns_T">
+								<a href="#" title="Instargram">Instargram 바로가기</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

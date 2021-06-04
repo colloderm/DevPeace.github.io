@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title> new document </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/mercure.css?v=1"/>
+  <script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="../js/header.js"></script>
+  <script>
+	$(function(){
+	});
+  </script>
+  <style type="text/css">
+
+		#wrap{width:100%; height:100%;}
+
+		/* header */
+		#headerWrap{width:100%; height:60px; background-color:rgba(0, 0, 0, 0.8); position:absolute; left:0; top:0;}
+		#header {width:960px; height:100px; position:relative; margin:0 auto; overflow:hidden;}
+
+		#head div{float:left;}
+
+		/* headLogo */
+		#headLogo{width:200px; height:60px;}
+		#headLogo h1{
+			width:150px; height:60px;
+			background-image:url("../img/logo_mercure.png"); 
+			background-repeat:no-repeat; 
+			background-size:70% 100%;
+			background-position:right;
+		}
+		#headLogo h1 a{width:100%; height:100%; display:block;  text-indent:-9999px;}
+
+		/* head gnb */
+		#head #gnb{width:760px; height:100px; margin-left:200px;}
+		#head #gnb li a{color:#bababa; font-weight:700;}
+		#head #gnb li.gnb_t{width:187.5px; height:60px; line-height:60px; text-align:center; float:left;}
+
+		#head #gnb li div.subline{width:100%; position:fixed; left:0; top:60px; background-color:rgba(0, 0, 0, 0.6);}
+		#head #gnb li ul.gnb_st{font-size:13px;  height:40px; line-height:40px;  text-align:center; width:960px; margin:0 auto; }
+		#head #gnb li ul.gnb_st li{text-align:center; display:inline-block;}
+		#head #gnb li ul.gnb_st li a{padding:0 20px;}
+
+		/*content */
+		#content{width:100%; position: unset;}
+		#content #ct_head img{width:100%;}
+		
+		/* navWrap */
+		#ct_navWrap{width:100%; height:30px; padding-top:100px;}
+		#ct_navWrap #nav{width:960px; margin:0 auto;}
+
+		/* subNav1 */
+		#nav #subNav1{width:100%; line-height:40px; text-align:left;}
+		#nav #subNav1 li{display:inline; font-size:13px;}
+		#nav #subNav1 li a{padding:0 5px; color:#000;}
+		#nav #subNav1 li span{padding:0 5px;}
+
+		/* ct_content */
+		#ct_content{width:960px; margin:0 auto;}
+		#ct_content h3{width:100%; font-size:50px; padding:10px 0 5px; border-bottom:1px solid #aaa;}
+		#ct_content .summary{width:100%; font-size:12px; color:#777; padding:10px 0 20px;}
+
+		/* recruitArea */
+		.recruitArea{width:100%;}
+
+		.recruitArea:after{content:""; display:block; clear:both;}
+		.recruitArea h4 {margin: 50px 0 10px; font-size: 20px; color: #894692;}
+		.recruit_top {display: table; width: 100%; height: 280px; margin: 30px 0 0; background: url("../img/img_recruit.jpg") center no-repeat;}
+		.recruit_top div {display: table-cell; vertical-align: middle; text-align: center; color: #fff;}
+		.recruit_top div strong {font-size: 22px;}
+
+		.recruit_con {overflow: hidden;}
+		.recruit_con p {font-size: 14px; line-height: 22px;}
+		.recruit_big3 {text-align: center; margin: 15px 0 20px;}
+		.recruit_big3 span {display: inline-block; text-align: center; vertical-align: top;}
+
+		.recruit_big3 .big1 {width: 160px; height: 160px; background: #f3f3f3 url("../img/icon_recruit01.png") center 38px no-repeat; border-radius: 80px; line-height: 220px;}
+		.recruit_big3 .tplus {display: inline-block; width: 40px; height: 160px; line-height: 160px !important; text-align: center;}
+		.recruit_big3 .big2 {width: 160px; height: 160px; background: #f3f3f3 url("../img/icon_recruit02.png") center 38px no-repeat; border-radius: 80px; line-height: 220px;}
+		.recruit_big3 .big3 {width: 160px; height: 160px; background: #f3f3f3 url("../img/icon_recruit03.png") center 38px no-repeat; border-radius: 80px; line-height: 220px;}
+
+		#recruit_con_open {margin: 10px 0 0;}
+		.tbl_type_list {width: 100%; text-align: center; border-top: 1px solid #aaa;}
+		.tbl_type_list th {padding: 10px 5px; background: #f9f9f9; border-bottom: 1px solid #ddd; font-size: 13px;}
+		.tbl_type_list td {padding: 10px 0; border-bottom: 1px solid #e7e7e7; min-height: 50px; font-size: 13px; line-height: 22px;}
+
+		.recruit_step3 {text-align: center; margin: 15px 0 20px;}
+		.recruit_step3 span {display: inline-block; text-align: center; vertical-align: top;}
+		.recruit_step3 span .hidden {display: none;}
+		.recruit_step3 .step1, .recruit_step3 .step2, .recruit_step3 .step3 {width: 120px; font-size: 14px;}		
+		.recruit_step3 .tplus {display: inline-block; width: 40px; height: 160px; line-height: 160px !important; text-align: center;}
+		.recruit_step3 .step1 .txt {width: 120px; height: 120px; padding-top: 76px; margin: 0 0 10px; background: #f3f3f3 url("../img/icon_recruit04.png") center 25px no-repeat; background-size: 48px 48px; border-radius: 80px; line-height: 16px; font-size: 14px;}
+		.recruit_step3 .step2 .txt {width: 120px; height: 120px; padding-top: 76px; margin: 0 0 10px; background: #f3f3f3 url("../img/icon_recruit05.png") center 25px no-repeat; background-size: 48px 48px; border-radius: 80px; line-height: 16px; font-size: 14px;}
+		.recruit_step3 .step3 .txt {width: 120px; height: 120px; padding-top: 76px; margin: 0 0 10px; background: #f3f3f3 url("../img/icon_recruit06.png") center 25px no-repeat; background-size: 48px 48px; border-radius: 80px; line-height: 16px; font-size: 14px;}
+
+		.recruit_con .recruit_btn {text-align: center; margin: 50px 0 0;}
+		.recruit_con .recruit_btn a {display: inline-block; padding: 15px 50px; background: #222; border-radius: 3px; color: #fff; font-weight: 700; text-align: center; transition: all .3s;}
+
+		/* footer */
+		#footer{clear:both; width:100%; height:120px; background-color:rgba(0, 0, 0, 0.8); font-size:11px; position:relative; bottom:0; margin-top: 50px;}
+		#footerWrap{width:960px; height:120px; margin:0 auto;}
+		#footerWrap #ftcopy, #footerWrap #ftSelect, #footerWrap #sns{float:left;}
+
+		#ftcopy{width:660px; height:120px; padding-top:10px;}
+		#footer #footerLink p a{font-size:12px; color:#999;}
+		#footer #footerLink p span{color:#fff; font-size:9px; padding:0 10px 0 15px;}
+		#footer #address address{font-style:normal; color:#777; padding:15px 0;}
+		#footer #copy p{color:#777;}
+		
+		/* ftSelect */
+		#ftSelect{width:300px; height:110px; padding-top:10px;}
+		#ftSelect div{float:left;}
+		#ftSelect #trip{width:150px; height:50px;}
+		#ftSelect #language{width:150px; height:50px; line-height:50px;}
+		#ftSelect #language #rankSelect{padding:5px 10px; margin-top:5px;}
+
+		/* sns */
+		#sns{clear:both; width:100%; height:50px;}
+		#sns li{display:inline-block; margin-right:10px;}
+		#sns li.sns_F{width:50px; background-image:url("../img/btn_gnb_facebook.gif"); background-repeat:no-repeat;}
+		#sns li.sns_Fg{width:50px; background-image:url("../img/btn_gnb_facebook_g.gif"); background-repeat:no-repeat;}
+		#sns li.sns_T{width:50px; background-image:url("../img/btn_gnb_instartgram.gif"); background-repeat:no-repeat;}
+		#sns li a{width:50px; height:50px; display:block; text-indent:-9999px;}
+
+		@media screen and (min-width:1024px){
+			#head #gnb li.point{display:none;}
+			#content h3 span{display:none;}
+		}
+
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="headerWrap">
+			<div id="header">
+				<div id="head">
+					<div id="headLogo">
+						<h1><a href="../index.html" title="머큐어호텔">머큐어호텔</a></h1>
+					</div>
+					<ul id="gnb">
+						<li class="point"><img src="img/btn_m_gnb.png" alt="s_menu"/></li>
+						<li class="gnb_t"><a href="../HOTEL/room/ROOMS.html" title="HOTEL">HOTEL</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="../HOTEL/room/ROOMS.html" title="ROOM">ROOM</a></li><!--
+									 --><li><a href="../HOTEL/eat/EATnDRINK.html" title="EatnDrink">Eat &amp; Drink</a></li><!--
+									 --><li><a href="../HOTEL/facilities/FACILITIES.html" title="Facilities">Facilities</a></li><!--
+									 --><li><a href="../HOTEL/event/EVENT.html" title="Event">Event</a></li><!--
+									 --><li><a href="../HOTEL/special_offfers/Special_offers.html" title="Special offers">Special offers</a></li><!--
+									 --><li><a href="../HOTEL/membership/MEMBERSHIP.html" title="Membership">Membership</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="#" title="MAGAZINE">MAGAZINE</a></li>
+						<li class="gnb_t"><a href="../SUPPORT/notice.html" title="SUPPORT">SUPPORT</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="../SUPPORT/notice.html" title="Notice">Notice</a></li><!--
+									 --><li><a href="../SUPPORT/press.html" title="Press">Press</a></li><!--
+									 --><li><a href="../SUPPORT/reviews.html" title="Reviews">Reviews</a></li><!--
+									 --><li><a href="#" title="FAQ">FAQ</a></li><!--
+									 --><li><a href="../SUPPORT/inquiry.html" title="1:1 Inquiry">1:1 Inquiry</a></li><!--
+									 --><li><a href="../SUPPORT/contact.html" title="Contact Us">Contact Us</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gnb_t"><a href="./introducation-detail.html" title="ABOUT">ABOUT</a>
+							<div class="subline">
+								<ul class="gnb_st">
+									<li><a href="./introducation-detail.html" title="Introduction">Introduction</a></li><!--
+									 --><li><a href="./greeting-detail.html" title="Greeting">Greeting</a></li><!--
+									 --><li><a href="./advantage.html" title="Advantage">Advantage</a></li><!--
+									 --><li><a href="#" title="Location">Location</a></li><!--
+									 --><li><a href="#" title="Recruit">Recruit</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<h2>컨텐츠 영역</h2>
+			<div id="ct_navWrap">
+				<div id="nav">
+					<ul id="subNav1">
+						<li>HOME<span>&gt;</span></li>
+						<li>ABOUT<span>&gt;</span></li>
+						<li><a href="#" title="ABOUT"><strong>채용</strong></a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="ct_content">
+				<h3>채용</h3>
+				<p class="summary">머큐어 서울 앰배서더 강남 쏘도베의 채용안내입니다.</p>
+				<div class="recruitArea">
+					<article class="recruit_top">
+						<div>
+							<p>Mercure Seoul Ambassador Gangnam Sodowe</p>
+							<p><strong>우리가 함께하길 원하는 '사람'</strong></p>
+						</div>
+					</article>
+					<article class="recruit_con">
+						<h4>화려한 스펙보다 뛰어난 이력보다 우리에겐 가장 중요한 3가지</h4>
+						<div class="recruit_big3">
+							<span class="big1">긍정</span><span class="tplus">+</span>
+							<span class="big2">열정</span><span class="tplus">+</span>
+							<span class="big3">비전</span>
+						</div>
+						<p>주어진 ‘일’과 다른 사람의 ‘생각’을 긍정적으로 바라보고 자신의 일을 적극적으로 그리고 주도적으로 해결해 나가며 미래의 ‘나’를 위해 목표를 세우고 그 목표를 위해 노력하는 사람. ‘나’를 통해 더 나은 ‘우리’를 만들어갈 수 있는 사람이라면 언제든지 ‘우리’의 가족으로 함께 할 수 있습니다.</p>
+					</article>
+					<article class="recruit_con">
+						<h4> 현재 채용 분야 (채용 기간: 2017.06.01~ 채용 시 까지)</h4>
+					   <p>Stay MERCURE, Play GANGNAM</p>
+					   <div id="recruit_con_open">
+						   <table class="tbl_type_list" border="0" cellpadding="0" cellspacing="0" summary="모집분야">
+							   <colgroup>
+								   <col width="10%">
+								   <col width="25%">
+								   <col width="25%">
+								   <col width="40%">
+							   </colgroup>
+							   <thead>
+								   <tr>
+									   <th>부서</th>
+									   <th>모집부문</th>
+									   <th>직급</th>
+									   <th>자격요건</th>
+								   </tr>
+							   </thead>
+							   <tbody>
+								   <tr>
+									   <td rowspan="2">F&amp;B</td>
+									   <td>Kitchen</td>
+									   <td>사원</td>
+									   <td rowspan="2" class="left">◎ 유관업무 경험자(인턴,실습 등) 우대<br>
+										   ◎ 호텔 관련 전공자<br>
+										   ◎ 영어 가능자 우대<br>
+								   </td></tr>
+								   <tr>
+									   <td>Service</td>
+									   <td>사원</td>
+								   </tr>
+							   </tbody>
+						   </table>
+					   </div>
+
+					   <div id="recruit_con_open">
+						   <table class="tbl_type_list" border="0" cellpadding="0" cellspacing="0" summary="모집분야">
+							   <colgroup>
+								   <col width="10%">
+								   <col width="25%">
+								   <col width="25%">
+								   <col width="40%">
+							   </colgroup>
+							   <thead>
+								   <tr>
+									   <th>부서</th>
+									   <th>모집부문</th>
+									   <th>담당업무</th>
+									   <th>자격요건</th>
+								   </tr>
+							   </thead>
+							   <tbody>
+								   <tr>
+									   <td>Front Office</td>
+									   <td>Front (신입/경력)</td>
+									   <td>- 프론트 업무<br>-  고객관리(예약관리)<br>- 고객 영접 및 환대<br>- 호텔안내 서비스<br></td>
+									   <td rowspan="2" class="left">◎ 유관업무 경험자(인턴,실습 등) 우대<br>
+										   ◎ 호텔 관련 전공자<br>
+										   ◎ 영어 가능자 우대<br>
+										   ◎ 투철한 서비스 정신의 소유자<br>
+								   </td></tr>
+							   </tbody>
+						   </table>
+					   </div>
+
+					   <h4>호텔 구성 부서</h4>
+					   <p>Stay MERCURE, Play GANGNAM</p>
+
+					   <div id="recruit_con_open">
+						   <table class="tbl_type_list" border="0" cellpadding="0" cellspacing="0" summary="모집분야">
+							   <colgroup>
+								   <col width="10%">
+								   <col width="25%">
+								   <col width="25%">
+								   <col width="40%">
+							   </colgroup>
+							   <thead>
+								   <tr>
+									   <th>구분</th>
+									   <th>부서</th>
+									   <th>팀</th>
+									   <th>직책</th>
+								   </tr>
+							   </thead>
+							   <tbody>
+								   <tr>
+									   <td rowspan="9">Operations</td>
+									   <td>Front Office</td>
+									   <td>Front Office</td>
+									   <td class="left">◎ Manager<br>
+										   ◎ Supervisor<br>
+										   ◎ Receptionist<br>
+										   ◎ Concierge</td>
+								   </tr>
+								   <tr>
+									   <td rowspan="2">Food &amp; Beverage</td>
+									   <td>Service</td>
+									   <td class="left">◎ Manager<br>
+										   ◎ Supervisor<br>
+										   ◎ Service Attendant</td>
+								   </tr>
+								   <tr>
+									   <td>Kitchen</td>
+									   <td class="left">◎ Chef de Partie<br>
+										   ◎ Demi Chef<br>
+										   ◎ Commis</td>
+								   </tr>
+								   <tr>
+									   <td rowspan="3">Sales &amp; Marketing</td>
+									   <td>Sales</td>
+									   <td class="left">◎ Sales Manager</td>
+								   </tr>
+								   <tr>
+									   <td>Marketing</td>
+									   <td class="left">◎ Marketing Manager<br>
+										   ◎ PR Manager<br>
+										   ◎ Designer<br>
+										   ◎ Membership Manager</td>
+								   </tr>
+								   <tr>
+									   <td>Reservation</td>
+									   <td class="left">◎ Revenue Manager<br>
+										   ◎ Reservation Executive</td>
+								   </tr>
+								   <tr>
+									   <td rowspan="3">Operation Support</td>
+									   <td>Operation Support</td>
+									   <td class="left">&nbsp;</td>
+								   </tr>
+								   <tr>
+									   <td>Engineering</td>
+									   <td class="left">&nbsp;</td>
+								   </tr>
+								   <tr>
+									   <td>Housekeeping</td>
+									   <td class="left">&nbsp;</td>
+								   </tr>
+								   <tr>
+									   <td rowspan="3">A &amp; G</td>
+									   <td rowspan="3">Admin &amp; General</td>
+									   <td>Finance</td>
+									   <td class="left">◎ Income &amp; Account Receivable<br>
+										   ◎ Account Payable</td>
+								   </tr>
+								   <tr>
+									   <td>Purchasing</td>
+									   <td class="left">&nbsp;</td>
+								   </tr>
+								   <tr>
+									   <td>HR</td>
+									   <td class="left">◎ Human Resource<br>
+										   ◎ Training</td>
+								   </tr>
+							   </tbody>
+						   </table>
+					   </div>
+				   </article>
+				   <article class="recruit_con">
+						<h4>접수 및 채용 절차</h4>
+						<div class="recruit_step3">
+							<span class="step1">
+								<span class="txt">지원서 작성</span>
+								<span class="hidden">(</span><span>국/영문 입사지원서 작성</span><span class="hidden">)</span>
+							</span>
+							<span class="tplus"> &gt; </span>
+							<span class="step2">
+								<span class="txt">서류전형</span>
+								<span class="hidden">(</span><span>국/영문 입사지원서 제출</span><span class="hidden">)</span>
+							</span>
+							<span class="tplus"> &gt; </span>
+							<span class="step3">
+								<span class="txt">채용 1차 면접</span>
+								<span class="hidden">(</span><span>부서장 면접</span><span class="hidden">)</span>
+							</span>
+							<span class="tplus"> &gt; </span>
+							<span class="step3">
+								<span class="txt">채용 2차 면접</span>
+								<span class="hidden">(</span><span>임원진 면접</span><span class="hidden">)</span>
+							</span>
+						</div>
+						<p class="recruit_btn">
+							메일접수: <a href="mailto:hr@mercureseoul.com">hr@mercureseoul.com</a>
+						</p>
+					</article>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div id="footerWrap">
+				<h2>풋터 영역</h2>
+				<div id="ftcopy">
+					<div id="footerLink">
+						<p>
+							<a href="#" title="개인정보취급방침"><strong>개인정보취급방침</strong></a><span>|</span>
+							<a href="#" title="이용약관">이용약관</a>
+						</p>
+					</div>
+					<div id="address">
+						<address>
+							상호 : (주)희앤썬 / 대표자명 : 우희명 서울시 강남구 역삼동 테헤란로 25길 10 (서울시 강남구 역삼동 642번지)<br/>
+							TEL : 02-2050-6000 / 사업자등록번호 : 211-81-61213 / 통신판매업신고번호 : 2013-서울강남-00319
+						</address>
+					</div>
+					<div id="copy">
+						<p>
+							Copyright 2016 Mercure Seoul Ambassador Gangnam Sodowe All Rights Reserved
+						</p>
+					</div>
+				</div>
+				<div id="ftSelect">
+					<div id="trip">
+						<a href="#" title="예약하기"><img src="../img/btn_gnb_trip.gif" alt="호텔예약"/></a>
+					</div>
+					<div id="language">
+						<select id="rankSelect">
+							<option value="Select Language">Select Language</option>
+							<option value="English">English</option>
+							<option value="Chinese">Chinese</option>
+							<option value="Japanese">Japanese</option>
+							<option value="Korean">Korean</option>
+						</select>
+					</div>
+					<div id="sns">
+						<ul>
+							<li class="sns_F">
+								<a href="#" title="facebook1">facebook 바로가기</a>
+							</li>
+							<li class="sns_Fg">
+								<a href="#" title="facebook2">facebook 바로가기</a>
+							</li>
+							<li class="sns_T">
+								<a href="#" title="Instargram">Instargram 바로가기</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>
